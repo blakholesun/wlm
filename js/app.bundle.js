@@ -6,47 +6,53 @@ webpackJsonp([0],[
 
 	__webpack_require__(1);
 
-	var _angular = __webpack_require__(5);
+	__webpack_require__(5);
+
+	__webpack_require__(7);
+
+	var _angular = __webpack_require__(9);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _angularUiRouter = __webpack_require__(7);
+	var _angularUiRouter = __webpack_require__(11);
 
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-	var _angularAnimate = __webpack_require__(8);
+	var _angularAnimate = __webpack_require__(12);
 
 	var _angularAnimate2 = _interopRequireDefault(_angularAnimate);
 
-	var _angularAria = __webpack_require__(10);
+	var _angularAria = __webpack_require__(14);
 
 	var _angularAria2 = _interopRequireDefault(_angularAria);
 
-	var _angularMaterial = __webpack_require__(12);
+	var _angularMaterial = __webpack_require__(16);
 
 	var _angularMaterial2 = _interopRequireDefault(_angularMaterial);
 
-	var _app = __webpack_require__(14);
+	var _angularDataTable = __webpack_require__(18);
+
+	var _angularDataTable2 = _interopRequireDefault(_angularDataTable);
+
+	var _app = __webpack_require__(19);
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _app3 = __webpack_require__(15);
+	var _app3 = __webpack_require__(20);
 
 	var _app4 = _interopRequireDefault(_app3);
 
-	var _app5 = __webpack_require__(16);
+	var _app5 = __webpack_require__(21);
 
 	var _app6 = _interopRequireDefault(_app5);
 
-	var _home = __webpack_require__(17);
+	var _home = __webpack_require__(22);
 
-	var _patient = __webpack_require__(20);
+	var _patient = __webpack_require__(25);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	console.log("HI");
-
-	_angular2.default.module('wlm', [_angularUiRouter2.default, _angularAnimate2.default, _angularAria2.default, _angularMaterial2.default]).config(_app2.default).config(_app6.default).config(_app4.default).component(_home.homeComponentName, _home.homeComponent).service(_patient.patientServiceName, _patient.Patient);
+	_angular2.default.module('wlm', [_angularUiRouter2.default, _angularAnimate2.default, _angularAria2.default, _angularMaterial2.default, _angularDataTable2.default.name]).config(_app2.default).config(_app6.default).config(_app4.default).component(_home.homeComponentName, _home.homeComponent).service(_patient.patientServiceName, _patient.Patient);
 
 /***/ },
 /* 1 */
@@ -363,16 +369,83 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(6);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./dataTable.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./dataTable.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	exports.push([module.id, ".dt {\n  visibility: hidden;\n  overflow: hidden;\n  justify-content: center;\n  position: relative;\n}\n.dt.dt-loaded {\n  visibility: visible !important;\n}\n.dt *,\n.dt *:before,\n.dt *:after {\n  -moz-box-sizing: border-box;\n  -webkit-box-sizing: border-box;\n  box-sizing: border-box;\n}\n.dt .dt-clone {\n  opacity: .4;\n}\n.dt .dt-clone .dt-resize-handle {\n  visibility: hidden;\n}\n.dt .dt-cell,\n.dt .dt-header-cell {\n  vertical-align: top;\n  overflow: hidden;\n  white-space: nowrap;\n  line-height: 1.625;\n  text-overflow: ellipsis;\n  touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  -o-user-select: none;\n  user-select: none;\n}\n.dt .dt-row,\n.dt .dt-header-inner {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -ms-flexbox;\n  display: -webkit-flex;\n  display: flex;\n  flex-direction: row;\n  -webkit-flex-flow: row;\n  -moz-flex-flow: row;\n  -ms-flex-flow: row;\n  -o-flex-flow: row;\n  flex-flow: row;\n}\n.dt .dt-row-left,\n.dt .dt-row-right {\n  z-index: 9;\n}\n.dt .dt-row-left,\n.dt .dt-row-center,\n.dt .dt-row-right {\n  position: relative;\n}\n.dt .dt-header {\n  overflow: hidden;\n}\n.dt .dt-header .dt-header-inner {\n  white-space: nowrap;\n  align-items: stretch;\n  -webkit-align-items: stretch;\n}\n.dt .dt-header .dt-header-cell {\n  position: relative;\n  white-space: nowrap;\n  display: inline-block;\n}\n.dt .dt-header .dt-header-cell.dt-drag-over {\n  background: #EEE;\n}\n.dt .dt-header .dt-header-cell.sortable .dt-header-cell-label {\n  cursor: pointer;\n}\n.dt .dt-header .dt-header-cell .sort-btn {\n  visibility: hidden;\n  display: inline-block;\n}\n.dt .dt-header .dt-header-cell .sort-btn.sort-desc,\n.dt .dt-header .dt-header-cell .sort-btn.sort-asc {\n  visibility: visible;\n}\n.dt .dt-header .dt-header-cell .dt-resize-handle {\n  display: inline-block;\n  position: absolute;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  width: 5px;\n  padding: 0 5px;\n  visibility: hidden;\n  cursor: ew-resize;\n}\n.dt .dt-header .dt-header-cell.resizable:hover .dt-resize-handle {\n  visibility: visible;\n}\n.dt .dt-header .dt-header-cell:last-child .dt-resize-handle {\n  visibility: hidden !important;\n}\n.dt .dt-body {\n  overflow: auto;\n  position: relative;\n  z-index: 10;\n}\n.dt .dt-body .dt-body-scroller {\n  white-space: nowrap;\n}\n.dt .dt-body .dt-group-row {\n  outline: none;\n}\n.dt .dt-body .dt-row {\n  backface-visibility: hidden;\n  outline: none;\n  white-space: nowrap;\n}\n.dt .dt-body .dt-row > div {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -ms-flexbox;\n  display: -webkit-flex;\n  display: flex;\n}\n.dt .dt-body .dt-tree-toggle {\n  cursor: pointer;\n}\n.dt .dt-footer .page-count {\n  display: inline-block;\n}\n.dt .dt-footer .dt-pager {\n  display: inline-block;\n  float: right;\n}\n.dt .dt-footer .dt-pager .pager,\n.dt .dt-footer .dt-pager .pager li {\n  padding: 0;\n  margin: 0;\n  list-style: none;\n}\n.dt .dt-footer .dt-pager .pager li,\n.dt .dt-footer .dt-pager .pager li a {\n  display: inline-block;\n  outline: none;\n}\n.dt.fixed .dt-body .dt-row,\n.dt.fixed .dt-body .dt-group-row {\n  position: absolute;\n}\n", ""]);
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(8);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./material.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./material.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	exports.push([module.id, ".dt.material {\n  background: #FFF;\n  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);\n  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);\n}\n.dt.material.selectable:not(.checkboxable) .dt-body .dt-row:focus,\n.dt.material.selectable:not(.checkboxable) .dt-body .dt-row:focus .dt-row-block {\n  background-color: #EEE;\n}\n.dt.material.selectable:not(.checkboxable) .dt-body .dt-row.selected,\n.dt.material.selectable:not(.checkboxable) .dt-body .dt-row.selected:hover,\n.dt.material.selectable:not(.checkboxable) .dt-body .dt-row.selected:focus,\n.dt.material.selectable:not(.checkboxable) .dt-body .dt-row.selected .dt-row-block,\n.dt.material.selectable:not(.checkboxable) .dt-body .dt-row.selected:hover .dt-row-block {\n  background-color: #304FFE;\n  color: #FFF;\n}\n.dt.material .dt-header {\n  border-bottom: 1px solid rgba(0, 0, 0, 0.12);\n}\n.dt.material .dt-header .dt-header-cell {\n  text-align: left;\n  padding: .5rem 1.2rem;\n  font-weight: 400;\n  color: #757575;\n  vertical-align: bottom;\n}\n.dt.material .dt-header .dt-resize-handle {\n  border-right: solid 1px #eee;\n}\n.dt.material .dt-header .dt-row-left,\n.dt.material .dt-body .dt-row-left {\n  background-color: #FFF;\n  background-position: 100% 0;\n  background-repeat: repeat-y;\n  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAFklEQVQIHWPSkNeSBmJhTQVtbiDNCgASagIIuJX8OgAAAABJRU5ErkJggg==);\n}\n.dt.material .dt-header .dt-row-right,\n.dt.material .dt-body .dt-row-right {\n  background-position: 0 0;\n  background-color: #fff;\n  background-repeat: repeat-y;\n  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAAFklEQVQI12PQkNdi1VTQ5gbSwkAsDQARLAIGtOSFUAAAAABJRU5ErkJggg==);\n}\n.dt.material .dt-body .dt-row .dt-cell {\n  text-align: left;\n  padding: .5rem 1.2rem;\n  vertical-align: top;\n  border-top: 0;\n  -webkit-transition: width 0.3s ease;\n  -o-transition: width 0.3s ease;\n  transition: width 0.3s ease;\n}\n.dt.material .dt-body .dt-row:hover,\n.dt.material .dt-body .dt-row:hover .dt-row-block {\n  background-color: #eee;\n  transition-property: background;\n  transition-duration: .3s;\n  transition-timing-function: linear;\n}\n.dt.material .dt-body .dt-row:hover input[type='checkbox']:after {\n  background-color: #b3e5fc;\n}\n.dt.material .dt-body .dt-group-row {\n  text-align: left;\n  padding: .5rem 1.2rem;\n  vertical-align: top;\n  border-top: 0;\n  background: #B6B6B6;\n}\n.dt.material .dt-footer {\n  border-top: 1px solid rgba(0, 0, 0, 0.12);\n  font-size: 16px;\n}\n.dt.material .dt-footer .page-count {\n  line-height: 50px;\n  height: 50px;\n  padding: 0 1.2rem;\n}\n.dt.material .dt-footer .pager {\n  margin: 5px 10px;\n}\n.dt.material .dt-footer .pager a {\n  height: 24px;\n  min-width: 24px;\n  line-height: 26px;\n  padding: 0 6px;\n  border-radius: 3px;\n  margin: 6px 3px;\n  text-align: center;\n  vertical-align: top;\n  color: rgba(0, 0, 0, 0.54);\n  text-decoration: none;\n}\n.dt.material .dt-footer .pager a:hover {\n  color: rgba(0, 0, 0, 0.75);\n  background-color: rgba(158, 158, 158, 0.2);\n}\n.dt.material .dt-footer .pager .icon-left,\n.dt.material .dt-footer .pager .icon-skip,\n.dt.material .dt-footer .pager .icon-right,\n.dt.material .dt-footer .pager .icon-prev {\n  font-size: 20px;\n  line-height: 32px;\n  padding: 0 3px;\n}\n.dt.material .dt-footer .pager .disabled a {\n  cursor: not-allowed;\n  color: rgba(0, 0, 0, 0.26) !important;\n  background-color: transparent !important;\n}\n.dt.material .dt-footer .pager .active a {\n  background-color: rgba(158, 158, 158, 0.2);\n  font-weight: bold;\n}\n.dt.material .empty-row {\n  height: 50px;\n  text-align: left;\n  padding: .5rem 1.2rem;\n  vertical-align: top;\n  border-top: 0;\n}\n.dt.material .loading-row {\n  text-align: left;\n  padding: .5rem 1.2rem;\n  vertical-align: top;\n  border-top: 0;\n}\n.dt-menu {\n  position: relative;\n  display: inline-block;\n  font-size: 14px;\n}\n.dt-menu .dropdown-toggle {\n  text-decoration: none;\n  color: rgba(0, 0, 0, 0.26);\n  z-index: 2;\n  display: inline-block;\n  vertical-align: top;\n  margin: 0;\n  padding: 0;\n  border: none;\n  border-radius: 2px;\n  background-color: transparent;\n  font-weight: 400;\n  text-align: center;\n  text-transform: uppercase;\n  cursor: pointer;\n}\n.dt-menu .dropdown-menu {\n  position: absolute;\n  right: 0;\n  background: #FFF;\n  z-index: 99;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);\n}\n.dt-menu .dropdown-menu input[type='text'] {\n  padding: 10px 15px;\n  display: block;\n  width: 100%;\n  font-size: 16px;\n  outline: none;\n  border: none;\n  border-bottom: 1px solid #eee;\n}\n.dt-checkbox {\n  position: relative;\n  margin: .5rem;\n  font-family: Arial, sans-serif;\n  line-height: 135%;\n  cursor: pointer;\n}\n.dt-checkbox input[type='checkbox'] {\n  position: relative;\n  margin: 0 1rem 0 0;\n  cursor: pointer;\n  outline: none;\n}\n.dt-checkbox input[type='checkbox']:before {\n  -webkit-transition: all 0.3s ease-in-out;\n  -moz-transition: all 0.3s ease-in-out;\n  transition: all 0.3s ease-in-out;\n  content: \"\";\n  position: absolute;\n  left: 0;\n  z-index: 1;\n  width: 1rem;\n  height: 1rem;\n  border: 2px solid #f2f2f2;\n}\n.dt-checkbox input[type='checkbox']:checked:before {\n  -webkit-transform: rotate(-45deg);\n  -moz-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  -o-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n  height: .5rem;\n  border-color: #009688;\n  border-top-style: none;\n  border-right-style: none;\n}\n.dt-checkbox input[type='checkbox']:after {\n  content: \"\";\n  position: absolute;\n  top: -0.125rem;\n  left: 0;\n  width: 1.1rem;\n  height: 1.1rem;\n  background: #fff;\n  cursor: pointer;\n}\n@-webkit-keyframes slideUp {\n  0% {\n    -webkit-transform: translateY(6.25rem);\n    transform: translateY(6.25rem);\n  }\n  100% {\n    -webkit-transform: translateY(0);\n    transform: translateY(0);\n  }\n}\n@keyframes slideUp {\n  0% {\n    -webkit-transform: translateY(6.25rem);\n    transform: translateY(6.25rem);\n  }\n  100% {\n    -webkit-transform: translateY(0);\n    transform: translateY(0);\n  }\n}\n/**\n * PROGRESS BAR -----\n */\n.progress-linear {\n  display: block;\n  position: relative;\n  width: 100%;\n  height: 5px;\n  padding-top: 0!important;\n  margin-bottom: 0!important;\n  margin-top: -5px;\n}\n.progress-linear .container {\n  display: block;\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  height: 5px;\n  -webkit-transform: translate(0, 0) scale(1, 1);\n  transform: translate(0, 0) scale(1, 1);\n  background-color: #aad1f9;\n}\n.progress-linear .bar {\n  transition: all .2s linear;\n  -webkit-animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);\n  animation: query 0.8s infinite cubic-bezier(0.39, 0.575, 0.565, 1);\n  transition: -webkit-transform 0.2s linear;\n  transition: transform .2s linear;\n  background-color: #106cc8;\n  position: absolute;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  width: 100%;\n  height: 5px;\n}\n@-webkit-keyframes query {\n  0% {\n    opacity: 1;\n    -webkit-transform: translateX(35%) scale(0.3, 1);\n    transform: translateX(35%) scale(0.3, 1);\n  }\n  100% {\n    opacity: 0;\n    -webkit-transform: translateX(-50%) scale(0, 1);\n    transform: translateX(-50%) scale(0, 1);\n  }\n}\n@keyframes query {\n  0% {\n    opacity: 1;\n    -webkit-transform: translateX(35%) scale(0.3, 1);\n    transform: translateX(35%) scale(0.3, 1);\n  }\n  100% {\n    opacity: 0;\n    -webkit-transform: translateX(-50%) scale(0, 1);\n    transform: translateX(-50%) scale(0, 1);\n  }\n}\n", ""]);
+
+/***/ },
 /* 9 */,
 /* 10 */,
 /* 11 */,
 /* 12 */,
 /* 13 */,
-/* 14 */
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -390,7 +463,7 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 15 */
+/* 20 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -407,7 +480,7 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 16 */
+/* 21 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -445,7 +518,7 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 17 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -455,7 +528,7 @@ webpackJsonp([0],[
 	});
 	exports.homeComponent = exports.homeComponentName = undefined;
 
-	var _home = __webpack_require__(18);
+	var _home = __webpack_require__(23);
 
 	var _home2 = _interopRequireDefault(_home);
 
@@ -464,13 +537,13 @@ webpackJsonp([0],[
 	var homeComponentName = exports.homeComponentName = 'homeComponent';
 
 	var homeComponent = exports.homeComponent = {
-	    template: __webpack_require__(19),
+	    template: __webpack_require__(24),
 	    controller: _home2.default,
 	    controllerAs: 'home'
 	};
 
 /***/ },
-/* 18 */
+/* 23 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -479,26 +552,46 @@ webpackJsonp([0],[
 	    value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	//HomeController.$inject = [];
+	var HomeController = function () {
+	    function HomeController(patientService) {
+	        _classCallCheck(this, HomeController);
 
-	var HomeController = function HomeController() {
-	    _classCallCheck(this, HomeController);
+	        this.patientService = patientService;
+	        this.hello = 'Hello World!';
+	        this.patients = [{ name: 'Austin', gender: 'Male' }, { name: 'Marjan', gender: 'Male' }];
+	        this.options = {
+	            rowHeight: 100,
+	            headerHeight: 50,
+	            footerHeight: false,
+	            scrollbarV: false,
+	            selectable: false
+	        };
+	    }
 
-	    this.hello = 'Hello World!';
-	};
+	    _createClass(HomeController, [{
+	        key: 'getPatients',
+	        value: function getPatients() {
+	            this.patients = this.patientService.getPatients();
+	        }
+	    }]);
+
+	    return HomeController;
+	}();
 
 	exports.default = HomeController;
 
 /***/ },
-/* 19 */
+/* 24 */
 /***/ function(module, exports) {
 
-	module.exports = "<h1>{{home.hello}}</h1>";
+	module.exports = "<md-content layout-padding>\n    <dtable options=\"home.options\" rows=\"home.patients\" class=\"material dt\">\n        <column name=\"Name\"></column>\n        <column name=\"ID\"></column>\n        <column name=\"Diagnosis\"></column>\n        <column name=\"Diagnosis Details\"></column>\n        <column name=\"Priority\"></column>\n        <column name=\"MR Date\"></column>\n        <column name=\"Days on WL\"></column>\n        <column name=\"SGAS Target Date\"></column>\n        <column name=\"Dosimetry Date\"></column>\n        <column name=\"CT Sim Date\"></column>\n        <column name=\"Days MR to CT Sim\"></column>\n        <column name=\"Days since CT Sim\"></column>\n        <column name=\"Current Step\"></column>\n        <column name=\"Hors Service\"></column>\n        <column name=\"Comments\"></column>\n        <column name=\"RadOnc\"></column>\n    </dtable>\n</md-content>\n<h1>{{home.hello}}</h1>";
 
 /***/ },
-/* 20 */
+/* 25 */
 /***/ function(module, exports) {
 
 	'use strict';

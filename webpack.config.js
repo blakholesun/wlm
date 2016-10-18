@@ -3,7 +3,8 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
         app: './app/app.js',
-        vendor: ['angular', 'angular-animate', 'angular-aria', 'angular-material', 'angular-ui-router']
+        vendor: ['angular', 'angular-animate', 'angular-aria', 'angular-material',
+            'angular-ui-router', 'angular-data-table']
     },
     output: {
         path:'./js',

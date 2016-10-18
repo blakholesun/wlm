@@ -1,20 +1,31 @@
 <!doctype html>
-<html>
+<html ng-app="wlm">
 <head>
     <base href="/">
     <title>Wait List Management</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--<link rel="stylesheet" href="app/css/angular-material.css">-->
-
     <script src="js/vendor.bundle.js"></script>
     <script src="js/app.bundle.js"></script>
 
 </head>
-<body ng-app="wlm">
-<div layout="row" layout-sm="column" layout-align="space-around">
-    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-</div>
+<body>
+
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings">
+            <md-icon md-svg-icon="app/img/menu.svg"></md-icon>
+        </md-button>
+        <h2>
+            <span>Waiting List Management</span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="More">
+            <md-icon md-svg-icon="app/img/more_vert.svg"></md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+
 <ui-view></ui-view>
 
 </body>
