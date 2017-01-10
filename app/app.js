@@ -8,6 +8,7 @@ import ngAnimate from 'angular-animate';
 import ngAria from 'angular-aria';
 import ngMaterial from 'angular-material';
 import dataTable from 'angular-data-table';
+import ngFileSaver from 'angular-file-saver';
 
 import routing from './app.routeConfig';
 import materialConfig from './app.materialConfig';
@@ -23,7 +24,8 @@ angular
         ngAnimate,
         ngAria,
         ngMaterial,
-        dataTable.name
+        dataTable.name,
+        ngFileSaver
     ])
     .config(routing)
     .config(routes)

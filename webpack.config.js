@@ -8,7 +8,8 @@ module.exports = {
     },
     output: {
         path:'./js',
-        filename: 'app.bundle.js'
+        filename: 'app.bundle.js',
+        publicPath: '/js/'
     },
     module: {
         loaders: [
@@ -28,6 +29,7 @@ module.exports = {
     devServer:{
         inline: true
     },
+    debug: true,
     plugins: [
         new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
     ]

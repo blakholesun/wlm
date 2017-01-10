@@ -1,21 +1,29 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings">
+            <md-icon md-svg-icon="app/img/menu.svg"></md-icon>
+        </md-button>
+        <h2>
+            <span>Waiting List Management</span>
+        </h2>
+        <span flex></span>
+        <md-menu md-position-mode="target-right target" >
+            <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                <md-icon md-menu-origin md-svg-icon="app/img/more_vert.svg"></md-icon>
+            </md-button>
+            <md-menu-content width="4" >
+                <md-menu-item>
+                    <md-button>
+                        <div layout="row" flex>
+                            <p flex ng-click="home.exportToCSV()">Export to CSV</p>
+                        </div>
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+</md-toolbar>
+
 <md-content layout-padding>
-    <dtable options="home.options" rows="home.patients" class="material dt">
-        <column name="Name"></column>
-        <column name="ID"></column>
-        <column name="Diagnosis"></column>
-        <column name="Diagnosis Details"></column>
-        <column name="Priority"></column>
-        <column name="MR Date"></column>
-        <column name="Days on WL"></column>
-        <column name="SGAS Target Date"></column>
-        <column name="Dosimetry Date"></column>
-        <column name="CT Date"></column>
-        <column name="MR -> CT"></column>
-        <column name="Days since CT"></column>
-        <column name="Current Step"></column>
-        <column name="Hors Service"></column>
-        <column name="Comments"></column>
-        <column name="RadOnc"></column>
-    </dtable>
+    <dtable options="home.options" rows="home.patients" class="material dt" on-row-click="home.onRowClick(row)"></dtable>
 </md-content>
-<h1>{{home.hello}}</h1>

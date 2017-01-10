@@ -47,6 +47,7 @@
   -ms-flex-flow: row;
   -o-flex-flow: row;
   flex-flow: row;
+  cursor: pointer; cursor: hand;
 }
 .dt .dt-row-left,
 .dt .dt-row-right {
