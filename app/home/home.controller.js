@@ -3,15 +3,21 @@ export default class HomeController {
         this.patientService = patientService;
         this.hello = 'Hello World!';
         this.patients = [
-            { name: 'Austin', gender: 'Male' },
-            { name: 'Marjan', gender: 'Male' }
+            { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
+            { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
+            { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
+            { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
+            { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
+            { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
+            { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
+            { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }
         ];
         this.options = {
             rowHeight: 100,
             headerHeight: 50,
             footerHeight: false,
             scrollbarV: false,
-            selectable: false
+            selectable: true
         };
 
     }

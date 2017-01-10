@@ -562,13 +562,13 @@ webpackJsonp([0],[
 
 	        this.patientService = patientService;
 	        this.hello = 'Hello World!';
-	        this.patients = [{ name: 'Austin', gender: 'Male' }, { name: 'Marjan', gender: 'Male' }];
+	        this.patients = [{ name: 'Austin', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }];
 	        this.options = {
 	            rowHeight: 100,
 	            headerHeight: 50,
 	            footerHeight: false,
 	            scrollbarV: false,
-	            selectable: false
+	            selectable: true
 	        };
 	    }
 
@@ -588,7 +588,7 @@ webpackJsonp([0],[
 /* 24 */
 /***/ function(module, exports) {
 
-	module.exports = "<md-content layout-padding>\n    <dtable options=\"home.options\" rows=\"home.patients\" class=\"material dt\">\n        <column name=\"Name\"></column>\n        <column name=\"ID\"></column>\n        <column name=\"Diagnosis\"></column>\n        <column name=\"Diagnosis Details\"></column>\n        <column name=\"Priority\"></column>\n        <column name=\"MR Date\"></column>\n        <column name=\"Days on WL\"></column>\n        <column name=\"SGAS Target Date\"></column>\n        <column name=\"Dosimetry Date\"></column>\n        <column name=\"CT Sim Date\"></column>\n        <column name=\"Days MR to CT Sim\"></column>\n        <column name=\"Days since CT Sim\"></column>\n        <column name=\"Current Step\"></column>\n        <column name=\"Hors Service\"></column>\n        <column name=\"Comments\"></column>\n        <column name=\"RadOnc\"></column>\n    </dtable>\n</md-content>\n<h1>{{home.hello}}</h1>";
+	module.exports = "<md-content layout-padding>\n    <dtable options=\"home.options\" rows=\"home.patients\" class=\"material dt\">\n        <column name=\"Name\"></column>\n        <column name=\"ID\"></column>\n        <column name=\"Diagnosis\"></column>\n        <column name=\"Diagnosis Details\"></column>\n        <column name=\"Priority\"></column>\n        <column name=\"MR Date\"></column>\n        <column name=\"Days on WL\"></column>\n        <column name=\"SGAS Target Date\"></column>\n        <column name=\"Dosimetry Date\"></column>\n        <column name=\"CT Date\"></column>\n        <column name=\"MR -> CT\"></column>\n        <column name=\"Days since CT\"></column>\n        <column name=\"Current Step\"></column>\n        <column name=\"Hors Service\"></column>\n        <column name=\"Comments\"></column>\n        <column name=\"RadOnc\"></column>\n    </dtable>\n</md-content>\n<h1>{{home.hello}}</h1>";
 
 /***/ },
 /* 25 */
