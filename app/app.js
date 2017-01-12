@@ -15,6 +15,7 @@ import materialConfig from './app.materialConfig';
 import routes from './app.routes';
 
 import {homeComponentName, homeComponent} from './home/home.component';
+import PatientController from './home/patient.controller';
 
 import {patientServiceName, Patient} from './services/patient.service'
 
@@ -31,4 +32,5 @@ angular
     .config(routes)
     .config(materialConfig)
     .component(homeComponentName, homeComponent)
+    .controller('PatientController', PatientController)
     .service(patientServiceName, Patient);

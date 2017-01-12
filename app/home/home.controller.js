@@ -52,8 +52,6 @@ export default class HomeController {
 
     }
 
-
-
     getPatients(){
         console.log("called get patients");
         this.patients = this.patientService.getPatientList();
@@ -68,6 +66,11 @@ export default class HomeController {
             template: require('./patientProfile.html'),
             parent: angular.element(document.body),
             //targetEvent: ev,
+            locals: {
+                patient: row,
+            },
+            controller: 'PatientController',
+            controllerAs: 'pt',
             clickOutsideToClose:true,
             //fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
         });

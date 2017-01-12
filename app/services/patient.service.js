@@ -16,16 +16,16 @@ export class Patient{
     // }
 
     setPatients(){
-        this.patients = [
-            { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
-            { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
-            { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
-            { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
-            { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
-            { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
-            { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
-            { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }
-        ];
+        this.patients = undefined;
+        //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
+        //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
+        //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
+        //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
+        //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
+        //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
+        //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
+        //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }
+        // ];
     }
 
     getPatientList(){
