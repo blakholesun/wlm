@@ -55,9 +55,13 @@ webpackJsonp([0],{
 
 	var _patient = __webpack_require__(96);
 
+	var _patient2 = _interopRequireDefault(_patient);
+
+	var _patient3 = __webpack_require__(97);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_angular2.default.module('wlm', [_angularUiRouter2.default, _angularAnimate2.default, _angularAria2.default, _angularMaterial2.default, _angularDataTable2.default.name, _angularFileSaver2.default]).config(_app2.default).config(_app6.default).config(_app4.default).component(_home.homeComponentName, _home.homeComponent).service(_patient.patientServiceName, _patient.Patient);
+	_angular2.default.module('wlm', [_angularUiRouter2.default, _angularAnimate2.default, _angularAria2.default, _angularMaterial2.default, _angularDataTable2.default.name, _angularFileSaver2.default]).config(_app2.default).config(_app6.default).config(_app4.default).component(_home.homeComponentName, _home.homeComponent).controller('PatientController', _patient2.default).service(_patient3.patientServiceName, _patient3.Patient);
 
 /***/ },
 
@@ -1174,10 +1178,12 @@ webpackJsonp([0],{
 
 	var HomeController = function () {
 	    function HomeController(patientService, FileSaver, $mdDialog) {
+	        var _this = this;
+
 	        _classCallCheck(this, HomeController);
 
 	        this.patientService = patientService;
-	        this.patients = [];
+	        this.patients = undefined;
 	        this.FileSaver = FileSaver;
 	        this.$mdDialog = $mdDialog;
 
@@ -1189,9 +1195,11 @@ webpackJsonp([0],{
 	            scrollbarV: false,
 	            selectable: true,
 	            columns: [{
-	                name: "Name"
+	                name: "Name",
+	                prop: "PLastName"
 	            }, {
-	                name: "ID"
+	                name: "ID",
+	                prop: "PatientID"
 	            }, {
 	                name: "Diagnosis"
 	            }, {
@@ -1199,15 +1207,18 @@ webpackJsonp([0],{
 	            }, {
 	                name: "Priority"
 	            }, {
-	                name: "MR Date"
+	                name: "MR Date",
+	                prop: "MedReadyDue"
 	            }, {
 	                name: "Days on WL"
 	            }, {
-	                name: "SGAS Target"
+	                name: "SGAS Target",
+	                prop: "SGASDueDateTime"
 	            }, {
 	                name: "Dosimetry Date"
 	            }, {
-	                name: "CT Date"
+	                name: "CT Date",
+	                prop: "CTDate"
 	            }, {
 	                name: "MR -> CT"
 	            }, {
@@ -1215,16 +1226,21 @@ webpackJsonp([0],{
 	            }, {
 	                name: "Current Step"
 	            }, {
-	                name: "Hors Service"
+	                name: "Hors Service",
+	                prop: "SGASActivityCode"
 	            }, {
 	                name: "Comments"
 	            }, {
-	                name: "Oncologist"
+	                name: "Oncologist",
+	                prop: "LastName"
 	            }]
 	        };
 
-	        this.patientService.setPatients();
-	        this.getPatients();
+	        this.patientService.setPatients().then(function (response) {
+	            _this.getPatients();
+	        }).catch(function (error) {
+	            console.log("Problem was", error);
+	        });
 	    }
 
 	    _createClass(HomeController, [{
@@ -1245,6 +1261,11 @@ webpackJsonp([0],{
 	                template: __webpack_require__(94),
 	                parent: angular.element(document.body),
 	                //targetEvent: ev,
+	                locals: {
+	                    patient: row
+	                },
+	                controller: 'PatientController',
+	                controllerAs: 'pt',
 	                clickOutsideToClose: true
 	            });
 	        }
@@ -1282,7 +1303,7 @@ webpackJsonp([0],{
 /***/ 94:
 /***/ function(module, exports) {
 
-	module.exports = "<md-dialog aria-label=\"Mango (Fruit)\">\n    <form ng-cloak>\n        <md-toolbar>\n            <div class=\"md-toolbar-tools\">\n                <h2>Mango (Fruit)</h2>\n                <span flex></span>\n                <md-button class=\"md-icon-button\" ng-click=\"cancel()\">\n                    <!--<md-icon md-svg-src=\"img/icons/ic_close_24px.svg\" aria-label=\"Close dialog\"></md-icon>-->\n                </md-button>\n            </div>\n        </md-toolbar>\n\n        <md-dialog-content>\n            <div class=\"md-dialog-content\">\n                <h2>Using .md-dialog-content class that sets the padding as the spec</h2>\n                <p>\n                    The mango is a juicy stone fruit belonging to the genus Mangifera, consisting of numerous tropical fruiting trees, cultivated mostly for edible fruit. The majority of these species are found in nature as wild mangoes. They all belong to the flowering plant family Anacardiaceae. The mango is native to South and Southeast Asia, from where it has been distributed worldwide to become one of the most cultivated fruits in the tropics.\n                </p>\n\n                <!--<img style=\"margin: auto; max-width: 100%;\" alt=\"Lush mango tree\" src=\"img/mangues.jpg\">-->\n\n                <p>\n                    The highest concentration of Mangifera genus is in the western part of Malesia (Sumatra, Java and Borneo) and in Burma and India. While other Mangifera species (e.g. horse mango, M. foetida) are also grown on a more localized basis, Mangifera indica&mdash;the \"common mango\" or \"Indian mango\"&mdash;is the only mango tree commonly cultivated in many tropical and subtropical regions.\n                </p>\n                <p>\n                    It originated in Indian subcontinent (present day India and Pakistan) and Burma. It is the national fruit of India, Pakistan, and the Philippines, and the national tree of Bangladesh. In several cultures, its fruit and leaves are ritually used as floral decorations at weddings, public celebrations, and religious ceremonies.\n                </p>\n            </div>\n        </md-dialog-content>\n\n        <md-dialog-actions layout=\"row\">\n            <md-button href=\"http://en.wikipedia.org/wiki/Mango\" target=\"_blank\" md-autofocus>\n                More on Wikipedia\n            </md-button>\n            <span flex></span>\n            <md-button ng-click=\"answer('not useful')\">\n                Not Useful\n            </md-button>\n            <md-button ng-click=\"answer('useful')\">\n                Useful\n            </md-button>\n        </md-dialog-actions>\n    </form>\n</md-dialog>";
+	module.exports = "<md-dialog aria-label=\"{{pt.patient.name}}\" style=\"width: 60%;\">\n    <form ng-cloak>\n        <md-toolbar>\n            <div class=\"md-toolbar-tools\">\n                <h2>{{pt.patient.name}}</h2>\n                <span flex></span>\n                <md-button class=\"md-icon-button\" ng-click=\"cancel()\">\n                    <!--<md-icon md-svg-src=\"img/icons/ic_close_24px.svg\" aria-label=\"Close dialog\"></md-icon>-->\n                </md-button>\n            </div>\n        </md-toolbar>\n\n        <md-dialog-content>\n            <md-tabs md-dynamic-height md-border-bottom >\n                <md-tab label=\"Summary\">\n                    <md-content class=\"md-padding\">\n                        <div layout=\"row\" layout-sm=\"column\" layout-align=\"space-around\" ng-show=\"pt.loading\">\n                            <md-progress-circular md-mode=\"indeterminate\"></md-progress-circular>\n                        </div>\n                        <div layout=\"column\" layout-align=\"center\">\n                            <md-card flex md-theme=\"default\" >\n                                <md-card-title>\n                                    <md-card-title-media>\n                                        <div class=\"md-media-lg\">\n                                            <img ng-src=\"data:image/JPEG;base64,{{pt.patientPhoto}}\" class=\"md-card-image\">\n                                        </div>\n                                    </md-card-title-media>\n                                    <md-card-title-text>\n                                        <span class=\"md-headline\">{{pt.patient.name}}</span>\n                                        <span class=\"md-subhead\">{{pt.patient.profile.sex}}</span>\n                                        <span class=\"md-subhead\">{{pt.patient.profile.physician}}</span>\n                                        <span class=\"md-subhead\">{{pt.patient.diagnosis}}</span>\n                                    </md-card-title-text>\n                                </md-card-title>\n                            </md-card>\n                        </div>\n\n                    </md-content>\n                </md-tab>\n                <md-tab label=\"Tasks and Appointments\">\n                    <md-content class=\"md-padding\">\n                        <div layout=\"row\">\n                            <md-list flex>\n                                <md-subheader class=\"md-no-sticky\">Tasks</md-subheader>\n                                <md-list-item class=\"md-3-line\" ng-repeat=\"task in tasks\" ng-click=\"null\">\n                                    <div class=\"md-list-item-text\" layout=\"column\">\n                                        <h3>{{ item.who }}</h3>\n                                        <h4>{{ item.what }}</h4>\n                                        <p>{{ item.notes }}</p>\n                                    </div>\n                                </md-list-item>\n                            </md-list>\n                            <md-list flex>\n                                <md-subheader class=\"md-no-sticky\">Appointments</md-subheader>\n                                <md-list-item class=\"md-3-line\" ng-repeat=\"task in tasks\" ng-click=\"null\">\n                                    <div class=\"md-list-item-text\" layout=\"column\">\n                                        <h3>{{ item.who }}</h3>\n                                        <h4>{{ item.what }}</h4>\n                                        <p>{{ item.notes }}</p>\n                                    </div>\n                                </md-list-item>\n                            </md-list>\n                        </div>\n                    </md-content>\n                </md-tab>\n                <md-tab label=\"Documents\">\n                    <md-content class=\"md-padding\">\n                        <md-list flex>\n                            <md-subheader class=\"md-no-sticky\">Documents</md-subheader>\n                            <md-list-item class=\"md-3-line\" ng-repeat=\"task in tasks\" ng-click=\"null\">\n                                <div class=\"md-list-item-text\" layout=\"column\">\n                                    <h3>{{ item.who }}</h3>\n                                    <h4>{{ item.what }}</h4>\n                                    <p>{{ item.notes }}</p>\n                                </div>\n                            </md-list-item>\n                        </md-list>\n                    </md-content>\n                </md-tab>\n            </md-tabs>\n        </md-dialog-content>\n\n        <md-dialog-actions layout=\"row\">\n            <span flex></span>\n            <md-button ng-click=\"pt.closeDialog()\">\n                Close\n            </md-button>\n        </md-dialog-actions>\n    </form>\n</md-dialog>";
 
 /***/ },
 
@@ -1294,6 +1315,54 @@ webpackJsonp([0],{
 /***/ },
 
 /***/ 96:
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var PatientController = function () {
+	    function PatientController($mdDialog, patient, patientService) {
+	        _classCallCheck(this, PatientController);
+
+	        this.patient = patient;
+	        this.$mdDialog = $mdDialog;
+	        this.patientService = patientService;
+	        this.loading = true;
+
+	        this.getPatientProfile(patient.id);
+	    }
+
+	    _createClass(PatientController, [{
+	        key: "getPatientProfile",
+	        value: function getPatientProfile(patientID) {
+	            // this.patientService.getSinglePatient(patientID)
+	            //     .then((response)=>{
+	            //         this.patient.profile = response.data;
+	            //         this.loading = false;
+	            //     })
+	        }
+	    }, {
+	        key: "closeDialog",
+	        value: function closeDialog() {
+	            this.$mdDialog.hide();
+	        }
+	    }]);
+
+	    return PatientController;
+	}();
+
+	exports.default = PatientController;
+
+/***/ },
+
+/***/ 97:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1318,18 +1387,36 @@ webpackJsonp([0],{
 	        this.patients = [];
 	    }
 
-	    // setPatients(){
-	    //     return this.$http.get('api/patients')
-	    //         .then((response) => {
-	    //             this.patients = response.data;
-	    //         });
-	    // }
-
 	    _createClass(Patient, [{
 	        key: 'setPatients',
 	        value: function setPatients() {
-	            this.patients = [{ name: 'Austin', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' }, { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }];
+	            var _this = this;
+
+	            return this.$http.get('php/wlmAPI/patients').then(function (response) {
+	                var temp = response.data.list;
+	                _this.patients = temp.map(function (patient) {
+	                    patient.MedReadyDue = new Date(patient.MedReadyDue.split(' '));
+	                    patient.SGASCreationDate = new Date(patient.SGASCreationDate);
+	                    patient.SGASDueDateTime = new Date(patient.SGASDueDateTime);
+	                    patient.CTDate = new Date(patient.CTDate);
+	                    return patient;
+	                });
+	            });
 	        }
+
+	        /*setPatients(){
+	            this.patients = undefined;
+	            //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
+	            //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
+	            //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
+	            //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
+	            //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
+	            //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
+	            //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
+	            //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }
+	            // ];
+	        }*/
+
 	    }, {
 	        key: 'getPatientList',
 	        value: function getPatientList() {

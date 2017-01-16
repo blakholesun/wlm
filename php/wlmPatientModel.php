@@ -66,7 +66,7 @@ class Patient
 
                     SELECT DISTINCT 
                     pat.PatientId, 
-                    MedReadyPatients.PatientSer, 
+                    --MedReadyPatients.PatientSer, 
                     pat.FirstName as PFirstName, 
                     pat.LastName as PLastName, 
                     --nsa.DueDateTime, 

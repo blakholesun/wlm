@@ -8,14 +8,21 @@ export class Patient{
         this.patients = [];
     }
 
-    // setPatients(){
-    //     return this.$http.get('api/patients')
-    //         .then((response) => {
-    //             this.patients = response.data;
-    //         });
-    // }
-
     setPatients(){
+        return this.$http.get('php/wlmAPI/patients')
+            .then((response) => {
+                var temp = response.data.list;
+                this.patients = temp.map((patient)=>{
+                    patient.MedReadyDue = new Date(patient.MedReadyDue.split(' '));
+                    patient.SGASCreationDate = new Date(patient.SGASCreationDate);
+                    patient.SGASDueDateTime = new Date(patient.SGASDueDateTime);
+                    patient.CTDate = new Date(patient.CTDate);
+                    return patient;
+                })
+            });
+    }
+
+    /*setPatients(){
         this.patients = undefined;
         //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
         //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
@@ -26,7 +33,7 @@ export class Patient{
         //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
         //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }
         // ];
-    }
+    }*/
 
     getPatientList(){
         console.log(this.patients);

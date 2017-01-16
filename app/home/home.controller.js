@@ -1,7 +1,7 @@
 export default class HomeController {
     constructor(patientService, FileSaver, $mdDialog){
         this.patientService = patientService;
-        this.patients = [];
+        this.patients = undefined;
         this.FileSaver= FileSaver;
         this.$mdDialog = $mdDialog;
 
@@ -13,9 +13,11 @@ export default class HomeController {
             scrollbarV: false,
             selectable: true,
             columns: [{
-                name: "Name"
+                name: "Name",
+                prop: "PLastName"
             }, {
-                name: "ID"
+                name: "ID",
+                prop: "PatientID"
             }, {
                 name: "Diagnosis"
             }, {
@@ -23,15 +25,18 @@ export default class HomeController {
             }, {
                 name: "Priority"
             }, {
-                name: "MR Date"
+                name: "MR Date",
+                prop: "MedReadyDue"
             }, {
                 name: "Days on WL"
             }, {
-                name: "SGAS Target"
+                name: "SGAS Target",
+                prop: "SGASDueDateTime"
             }, {
                 name: "Dosimetry Date"
             }, {
-                name: "CT Date"
+                name: "CT Date",
+                prop: "CTDate"
             }, {
                 name: "MR -> CT"
             }, {
@@ -39,16 +44,24 @@ export default class HomeController {
             }, {
                 name: "Current Step"
             }, {
-                name: "Hors Service"
+                name: "Hors Service",
+                prop: "SGASActivityCode"
             }, {
                 name: "Comments"
             }, {
-                name: "Oncologist"
+                name: "Oncologist",
+                prop: "LastName"
             }]
         };
 
-        this.patientService.setPatients();
-        this.getPatients();
+        this.patientService.setPatients()
+            .then((response)=>{
+                this.getPatients();
+            })
+            .catch((error)=>{
+                console.log("Problem was", error);
+            })
+        
 
     }
 
