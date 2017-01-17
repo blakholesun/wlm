@@ -1,58 +1,59 @@
 export default class HomeController {
-    constructor(patientService, FileSaver, $mdDialog){
+    constructor(patientService, FileSaver, $mdDialog, $mdToast){
         this.patientService = patientService;
         this.patients = undefined;
         this.FileSaver= FileSaver;
         this.$mdDialog = $mdDialog;
+        this.$mdToast = $mdToast;
 
-        // Table options
-        this.options = {
-            rowHeight: 100,
-            headerHeight: 50,
-            footerHeight: false,
-            scrollbarV: false,
-            selectable: true,
-            columns: [{
-                name: "Name",
-                prop: "PLastName"
-            }, {
-                name: "ID",
-                prop: "PatientID"
-            }, {
-                name: "Diagnosis"
-            }, {
-                name: "Diagnosis Details"
-            }, {
-                name: "Priority"
-            }, {
-                name: "MR Date",
-                prop: "MedReadyDue"
-            }, {
-                name: "Days on WL"
-            }, {
-                name: "SGAS Target",
-                prop: "SGASDueDateTime"
-            }, {
-                name: "Dosimetry Date"
-            }, {
-                name: "CT Date",
-                prop: "CTDate"
-            }, {
-                name: "MR -> CT"
-            }, {
-                name: "Days Elapsed"
-            }, {
-                name: "Current Step"
-            }, {
-                name: "Hors Service",
-                prop: "SGASActivityCode"
-            }, {
-                name: "Comments"
-            }, {
-                name: "Oncologist",
-                prop: "LastName"
-            }]
-        };
+        // // Table options
+        // this.options = {
+        //     rowHeight: 100,
+        //     headerHeight: 50,
+        //     footerHeight: false,
+        //     scrollbarV: false,
+        //     selectable: true,
+        //     columns: [{
+        //         name: "Name",
+        //         prop: "PLastName"
+        //     }, {
+        //         name: "ID",
+        //         prop: "PatientID"
+        //     }, {
+        //         name: "Diagnosis"
+        //     }, {
+        //         name: "Diagnosis Details"
+        //     }, {
+        //         name: "Priority"
+        //     }, {
+        //         name: "MR Date",
+        //         prop: "MedReadyDue"
+        //     }, {
+        //         name: "Days on WL"
+        //     }, {
+        //         name: "SGAS Target",
+        //         prop: "SGASDueDateTime"
+        //     }, {
+        //         name: "Dosimetry Date"
+        //     }, {
+        //         name: "CT Date",
+        //         prop: "CTDate"
+        //     }, {
+        //         name: "MR -> CT"
+        //     }, {
+        //         name: "Days Elapsed"
+        //     }, {
+        //         name: "Current Step"
+        //     }, {
+        //         name: "Hors Service",
+        //         prop: "SGASActivityCode"
+        //     }, {
+        //         name: "Comments"
+        //     }, {
+        //         name: "Oncologist",
+        //         prop: "LastName"
+        //     }]
+        // };
 
         this.patientService.setPatients()
             .then((response)=>{
@@ -74,6 +75,14 @@ export default class HomeController {
         this.patient = this.patientService.getSinglePatient(patientID);
     }
 
+    // selectedRowCallback (rows){
+    //     this.$mdToast.show(
+    //         this.$mdToast.simple()
+    //             .content('Selected row id(s): '+rows)
+    //             .hideDelay(3000)
+    //     );
+    // };
+
     onRowClick(row) {
         this.$mdDialog.show({
             template: require('./patientProfile.html'),
@@ -92,11 +101,13 @@ export default class HomeController {
     exportToCSV(){
         let dataString="";
         let csvContent ="";
-        this.options.columns.forEach((column, index, array) => {
+        let keys = Object.keys(this.patients[0]);
+        console.log(keys);
+        keys.forEach((column, index, array) => {
             if ( index == array.length-1 ) {
-                csvContent += column.name + "\n"
+                csvContent += column + "\n"
             } else {
-                csvContent += column.name + ",";
+                csvContent += column + ",";
             }
         });
 

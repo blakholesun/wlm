@@ -1,7 +1,9 @@
 import './css/angular-material.css';
 import './css/dataTable.css';
 import './css/material.css';
+import './css/md-data-table-style.css'
 
+import 'jquery';
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
 import ngAnimate from 'angular-animate';
@@ -9,6 +11,9 @@ import ngAria from 'angular-aria';
 import ngMaterial from 'angular-material';
 import dataTable from 'angular-data-table';
 import ngFileSaver from 'angular-file-saver';
+import ngSanitize from 'angular-sanitize';
+import mdDataTable from 'md-data-table';
+import 'lodash';
 
 import routing from './app.routeConfig';
 import materialConfig from './app.materialConfig';
@@ -26,7 +31,9 @@ angular
         ngAria,
         ngMaterial,
         dataTable.name,
-        ngFileSaver
+        ngFileSaver,
+        ngSanitize,
+        mdDataTable
     ])
     .config(routing)
     .config(routes)

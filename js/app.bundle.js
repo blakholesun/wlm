@@ -11,57 +11,71 @@ webpackJsonp([0],{
 
 	__webpack_require__(7);
 
-	var _angular = __webpack_require__(9);
+	__webpack_require__(9);
+
+	__webpack_require__(11);
+
+	var _angular = __webpack_require__(12);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _angularUiRouter = __webpack_require__(11);
+	var _angularUiRouter = __webpack_require__(14);
 
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-	var _angularAnimate = __webpack_require__(81);
+	var _angularAnimate = __webpack_require__(84);
 
 	var _angularAnimate2 = _interopRequireDefault(_angularAnimate);
 
-	var _angularAria = __webpack_require__(83);
+	var _angularAria = __webpack_require__(86);
 
 	var _angularAria2 = _interopRequireDefault(_angularAria);
 
-	var _angularMaterial = __webpack_require__(85);
+	var _angularMaterial = __webpack_require__(88);
 
 	var _angularMaterial2 = _interopRequireDefault(_angularMaterial);
 
-	var _angularDataTable = __webpack_require__(87);
+	var _angularDataTable = __webpack_require__(90);
 
 	var _angularDataTable2 = _interopRequireDefault(_angularDataTable);
 
-	var _angularFileSaver = __webpack_require__(88);
+	var _angularFileSaver = __webpack_require__(91);
 
 	var _angularFileSaver2 = _interopRequireDefault(_angularFileSaver);
 
-	var _app = __webpack_require__(89);
+	var _angularSanitize = __webpack_require__(92);
+
+	var _angularSanitize2 = _interopRequireDefault(_angularSanitize);
+
+	var _mdDataTable = __webpack_require__(94);
+
+	var _mdDataTable2 = _interopRequireDefault(_mdDataTable);
+
+	__webpack_require__(100);
+
+	var _app = __webpack_require__(102);
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _app3 = __webpack_require__(90);
+	var _app3 = __webpack_require__(103);
 
 	var _app4 = _interopRequireDefault(_app3);
 
-	var _app5 = __webpack_require__(91);
+	var _app5 = __webpack_require__(104);
 
 	var _app6 = _interopRequireDefault(_app5);
 
-	var _home = __webpack_require__(92);
+	var _home = __webpack_require__(105);
 
-	var _patient = __webpack_require__(96);
+	var _patient = __webpack_require__(109);
 
 	var _patient2 = _interopRequireDefault(_patient);
 
-	var _patient3 = __webpack_require__(97);
+	var _patient3 = __webpack_require__(110);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_angular2.default.module('wlm', [_angularUiRouter2.default, _angularAnimate2.default, _angularAria2.default, _angularMaterial2.default, _angularDataTable2.default.name, _angularFileSaver2.default]).config(_app2.default).config(_app6.default).config(_app4.default).component(_home.homeComponentName, _home.homeComponent).controller('PatientController', _patient2.default).service(_patient3.patientServiceName, _patient3.Patient);
+	_angular2.default.module('wlm', [_angularUiRouter2.default, _angularAnimate2.default, _angularAria2.default, _angularMaterial2.default, _angularDataTable2.default.name, _angularFileSaver2.default, _angularSanitize2.default, _mdDataTable2.default]).config(_app2.default).config(_app6.default).config(_app4.default).component(_home.homeComponentName, _home.homeComponent).controller('PatientController', _patient2.default).service(_patient3.patientServiceName, _patient3.Patient);
 
 /***/ },
 
@@ -453,615 +467,42 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 88:
+/***/ 9:
 /***/ function(module, exports, __webpack_require__) {
 
-	(function webpackUniversalModuleDefinition(root, factory) {
-		if(true)
-			module.exports = factory();
-		else if(typeof define === 'function' && define.amd)
-			define([], factory);
-		else {
-			var a = factory();
-			for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(10);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./md-data-table-style.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./md-data-table-style.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
 		}
-	})(this, function() {
-	return /******/ (function(modules) { // webpackBootstrap
-	/******/ 	// The module cache
-	/******/ 	var installedModules = {};
-
-	/******/ 	// The require function
-	/******/ 	function __webpack_require__(moduleId) {
-
-	/******/ 		// Check if module is in cache
-	/******/ 		if(installedModules[moduleId])
-	/******/ 			return installedModules[moduleId].exports;
-
-	/******/ 		// Create a new module (and put it into the cache)
-	/******/ 		var module = installedModules[moduleId] = {
-	/******/ 			exports: {},
-	/******/ 			id: moduleId,
-	/******/ 			loaded: false
-	/******/ 		};
-
-	/******/ 		// Execute the module function
-	/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
-	/******/ 		// Flag the module as loaded
-	/******/ 		module.loaded = true;
-
-	/******/ 		// Return the exports of the module
-	/******/ 		return module.exports;
-	/******/ 	}
-
-
-	/******/ 	// expose the modules object (__webpack_modules__)
-	/******/ 	__webpack_require__.m = modules;
-
-	/******/ 	// expose the module cache
-	/******/ 	__webpack_require__.c = installedModules;
-
-	/******/ 	// __webpack_public_path__
-	/******/ 	__webpack_require__.p = "";
-
-	/******/ 	// Load entry module and return exports
-	/******/ 	return __webpack_require__(0);
-	/******/ })
-	/************************************************************************/
-	/******/ ([
-	/* 0 */
-	/***/ function(module, exports, __webpack_require__) {
-
-		'use strict';
-		/*
-		*
-		* A AngularJS module that implements the HTML5 W3C saveAs() in browsers that
-		* do not natively support it
-		*
-		* (c) 2015 Philipp Alferov
-		* License: MIT
-		*
-		*/
-
-		module.exports = 'ngFileSaver';
-
-		angular.module('ngFileSaver', [])
-		  .factory('FileSaver', ['Blob', 'SaveAs', 'FileSaverUtils', __webpack_require__(1)])
-		  .factory('FileSaverUtils', [__webpack_require__(2)])
-		  .factory('Blob', ['$window', __webpack_require__(3)])
-		  .factory('SaveAs', [__webpack_require__(5)]);
-
-
-	/***/ },
-	/* 1 */
-	/***/ function(module, exports) {
-
-		'use strict';
-
-		module.exports = function FileSaver(Blob, SaveAs, FileSaverUtils) {
-
-		  function save(blob, filename, disableAutoBOM) {
-		    try {
-		      SaveAs(blob, filename, disableAutoBOM);
-		    } catch(err) {
-		      FileSaverUtils.handleErrors(err.message);
-		    }
-		  }
-
-		  return {
-
-		    /**
-		    * saveAs
-		    * Immediately starts saving a file, returns undefined.
-		    *
-		    * @name saveAs
-		    * @function
-		    * @param {Blob} data A Blob instance
-		    * @param {Object} filename Custom filename (extension is optional)
-		    * @param {Boolean} disableAutoBOM Disable automatically provided Unicode
-		    * text encoding hints
-		    *
-		    * @return {Undefined}
-		    */
-
-		    saveAs: function(data, filename, disableAutoBOM) {
-
-		      if (!FileSaverUtils.isBlobInstance(data)) {
-		        FileSaverUtils.handleErrors('Data argument should be a blob instance');
-		      }
-
-		      if (!FileSaverUtils.isString(filename)) {
-		        FileSaverUtils.handleErrors('Filename argument should be a string');
-		      }
-
-		      return save(data, filename, disableAutoBOM);
-		    }
-		  };
-		};
-
-
-	/***/ },
-	/* 2 */
-	/***/ function(module, exports) {
-
-		'use strict';
-
-		module.exports = function FileSaverUtils() {
-		  return {
-		    handleErrors: function(msg) {
-		      throw new Error(msg);
-		    },
-		    isString: function(obj) {
-		      return typeof obj === 'string' || obj instanceof String;
-		    },
-		    isUndefined: function(obj) {
-		      return typeof obj === 'undefined';
-		    },
-		    isBlobInstance: function(obj) {
-		      return obj instanceof Blob;
-		    }
-		  };
-		};
-
-
-	/***/ },
-	/* 3 */
-	/***/ function(module, exports, __webpack_require__) {
-
-		'use strict';
-
-		__webpack_require__(4);
-
-		module.exports = function Blob($window) {
-		  return $window.Blob;
-		};
-
-
-	/***/ },
-	/* 4 */
-	/***/ function(module, exports) {
-
-		/* Blob.js
-		 * A Blob implementation.
-		 * 2014-07-24
-		 *
-		 * By Eli Grey, http://eligrey.com
-		 * By Devin Samarin, https://github.com/dsamarin
-		 * License: MIT
-		 *   See https://github.com/eligrey/Blob.js/blob/master/LICENSE.md
-		 */
-
-		/*global self, unescape */
-		/*jslint bitwise: true, regexp: true, confusion: true, es5: true, vars: true, white: true,
-		  plusplus: true */
-
-		/*! @source http://purl.eligrey.com/github/Blob.js/blob/master/Blob.js */
-
-		(function (view) {
-			"use strict";
-
-			view.URL = view.URL || view.webkitURL;
-
-			if (view.Blob && view.URL) {
-				try {
-					new Blob;
-					return;
-				} catch (e) {}
-			}
-
-			// Internally we use a BlobBuilder implementation to base Blob off of
-			// in order to support older browsers that only have BlobBuilder
-			var BlobBuilder = view.BlobBuilder || view.WebKitBlobBuilder || view.MozBlobBuilder || (function(view) {
-				var
-					  get_class = function(object) {
-						return Object.prototype.toString.call(object).match(/^\[object\s(.*)\]$/)[1];
-					}
-					, FakeBlobBuilder = function BlobBuilder() {
-						this.data = [];
-					}
-					, FakeBlob = function Blob(data, type, encoding) {
-						this.data = data;
-						this.size = data.length;
-						this.type = type;
-						this.encoding = encoding;
-					}
-					, FBB_proto = FakeBlobBuilder.prototype
-					, FB_proto = FakeBlob.prototype
-					, FileReaderSync = view.FileReaderSync
-					, FileException = function(type) {
-						this.code = this[this.name = type];
-					}
-					, file_ex_codes = (
-						  "NOT_FOUND_ERR SECURITY_ERR ABORT_ERR NOT_READABLE_ERR ENCODING_ERR "
-						+ "NO_MODIFICATION_ALLOWED_ERR INVALID_STATE_ERR SYNTAX_ERR"
-					).split(" ")
-					, file_ex_code = file_ex_codes.length
-					, real_URL = view.URL || view.webkitURL || view
-					, real_create_object_URL = real_URL.createObjectURL
-					, real_revoke_object_URL = real_URL.revokeObjectURL
-					, URL = real_URL
-					, btoa = view.btoa
-					, atob = view.atob
-
-					, ArrayBuffer = view.ArrayBuffer
-					, Uint8Array = view.Uint8Array
-
-					, origin = /^[\w-]+:\/*\[?[\w\.:-]+\]?(?::[0-9]+)?/
-				;
-				FakeBlob.fake = FB_proto.fake = true;
-				while (file_ex_code--) {
-					FileException.prototype[file_ex_codes[file_ex_code]] = file_ex_code + 1;
-				}
-				// Polyfill URL
-				if (!real_URL.createObjectURL) {
-					URL = view.URL = function(uri) {
-						var
-							  uri_info = document.createElementNS("http://www.w3.org/1999/xhtml", "a")
-							, uri_origin
-						;
-						uri_info.href = uri;
-						if (!("origin" in uri_info)) {
-							if (uri_info.protocol.toLowerCase() === "data:") {
-								uri_info.origin = null;
-							} else {
-								uri_origin = uri.match(origin);
-								uri_info.origin = uri_origin && uri_origin[1];
-							}
-						}
-						return uri_info;
-					};
-				}
-				URL.createObjectURL = function(blob) {
-					var
-						  type = blob.type
-						, data_URI_header
-					;
-					if (type === null) {
-						type = "application/octet-stream";
-					}
-					if (blob instanceof FakeBlob) {
-						data_URI_header = "data:" + type;
-						if (blob.encoding === "base64") {
-							return data_URI_header + ";base64," + blob.data;
-						} else if (blob.encoding === "URI") {
-							return data_URI_header + "," + decodeURIComponent(blob.data);
-						} if (btoa) {
-							return data_URI_header + ";base64," + btoa(blob.data);
-						} else {
-							return data_URI_header + "," + encodeURIComponent(blob.data);
-						}
-					} else if (real_create_object_URL) {
-						return real_create_object_URL.call(real_URL, blob);
-					}
-				};
-				URL.revokeObjectURL = function(object_URL) {
-					if (object_URL.substring(0, 5) !== "data:" && real_revoke_object_URL) {
-						real_revoke_object_URL.call(real_URL, object_URL);
-					}
-				};
-				FBB_proto.append = function(data/*, endings*/) {
-					var bb = this.data;
-					// decode data to a binary string
-					if (Uint8Array && (data instanceof ArrayBuffer || data instanceof Uint8Array)) {
-						var
-							  str = ""
-							, buf = new Uint8Array(data)
-							, i = 0
-							, buf_len = buf.length
-						;
-						for (; i < buf_len; i++) {
-							str += String.fromCharCode(buf[i]);
-						}
-						bb.push(str);
-					} else if (get_class(data) === "Blob" || get_class(data) === "File") {
-						if (FileReaderSync) {
-							var fr = new FileReaderSync;
-							bb.push(fr.readAsBinaryString(data));
-						} else {
-							// async FileReader won't work as BlobBuilder is sync
-							throw new FileException("NOT_READABLE_ERR");
-						}
-					} else if (data instanceof FakeBlob) {
-						if (data.encoding === "base64" && atob) {
-							bb.push(atob(data.data));
-						} else if (data.encoding === "URI") {
-							bb.push(decodeURIComponent(data.data));
-						} else if (data.encoding === "raw") {
-							bb.push(data.data);
-						}
-					} else {
-						if (typeof data !== "string") {
-							data += ""; // convert unsupported types to strings
-						}
-						// decode UTF-16 to binary string
-						bb.push(unescape(encodeURIComponent(data)));
-					}
-				};
-				FBB_proto.getBlob = function(type) {
-					if (!arguments.length) {
-						type = null;
-					}
-					return new FakeBlob(this.data.join(""), type, "raw");
-				};
-				FBB_proto.toString = function() {
-					return "[object BlobBuilder]";
-				};
-				FB_proto.slice = function(start, end, type) {
-					var args = arguments.length;
-					if (args < 3) {
-						type = null;
-					}
-					return new FakeBlob(
-						  this.data.slice(start, args > 1 ? end : this.data.length)
-						, type
-						, this.encoding
-					);
-				};
-				FB_proto.toString = function() {
-					return "[object Blob]";
-				};
-				FB_proto.close = function() {
-					this.size = 0;
-					delete this.data;
-				};
-				return FakeBlobBuilder;
-			}(view));
-
-			view.Blob = function(blobParts, options) {
-				var type = options ? (options.type || "") : "";
-				var builder = new BlobBuilder();
-				if (blobParts) {
-					for (var i = 0, len = blobParts.length; i < len; i++) {
-						if (Uint8Array && blobParts[i] instanceof Uint8Array) {
-							builder.append(blobParts[i].buffer);
-						}
-						else {
-							builder.append(blobParts[i]);
-						}
-					}
-				}
-				var blob = builder.getBlob(type);
-				if (!blob.slice && blob.webkitSlice) {
-					blob.slice = blob.webkitSlice;
-				}
-				return blob;
-			};
-
-			var getPrototypeOf = Object.getPrototypeOf || function(object) {
-				return object.__proto__;
-			};
-			view.Blob.prototype = getPrototypeOf(new view.Blob());
-		}(typeof self !== "undefined" && self || typeof window !== "undefined" && window || this.content || this));
-
-
-	/***/ },
-	/* 5 */
-	/***/ function(module, exports, __webpack_require__) {
-
-		'use strict';
-
-		module.exports = function SaveAs() {
-		  return __webpack_require__(6).saveAs || function() {};
-		};
-
-
-	/***/ },
-	/* 6 */
-	/***/ function(module, exports, __webpack_require__) {
-
-		var __WEBPACK_AMD_DEFINE_RESULT__;/* FileSaver.js
-		 * A saveAs() FileSaver implementation.
-		 * 1.3.2
-		 * 2016-06-16 18:25:19
-		 *
-		 * By Eli Grey, http://eligrey.com
-		 * License: MIT
-		 *   See https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md
-		 */
-
-		/*global self */
-		/*jslint bitwise: true, indent: 4, laxbreak: true, laxcomma: true, smarttabs: true, plusplus: true */
-
-		/*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
-
-		var saveAs = saveAs || (function(view) {
-			"use strict";
-			// IE <10 is explicitly unsupported
-			if (typeof view === "undefined" || typeof navigator !== "undefined" && /MSIE [1-9]\./.test(navigator.userAgent)) {
-				return;
-			}
-			var
-				  doc = view.document
-				  // only get URL when necessary in case Blob.js hasn't overridden it yet
-				, get_URL = function() {
-					return view.URL || view.webkitURL || view;
-				}
-				, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
-				, can_use_save_link = "download" in save_link
-				, click = function(node) {
-					var event = new MouseEvent("click");
-					node.dispatchEvent(event);
-				}
-				, is_safari = /constructor/i.test(view.HTMLElement) || view.safari
-				, is_chrome_ios =/CriOS\/[\d]+/.test(navigator.userAgent)
-				, throw_outside = function(ex) {
-					(view.setImmediate || view.setTimeout)(function() {
-						throw ex;
-					}, 0);
-				}
-				, force_saveable_type = "application/octet-stream"
-				// the Blob API is fundamentally broken as there is no "downloadfinished" event to subscribe to
-				, arbitrary_revoke_timeout = 1000 * 40 // in ms
-				, revoke = function(file) {
-					var revoker = function() {
-						if (typeof file === "string") { // file is an object URL
-							get_URL().revokeObjectURL(file);
-						} else { // file is a File
-							file.remove();
-						}
-					};
-					setTimeout(revoker, arbitrary_revoke_timeout);
-				}
-				, dispatch = function(filesaver, event_types, event) {
-					event_types = [].concat(event_types);
-					var i = event_types.length;
-					while (i--) {
-						var listener = filesaver["on" + event_types[i]];
-						if (typeof listener === "function") {
-							try {
-								listener.call(filesaver, event || filesaver);
-							} catch (ex) {
-								throw_outside(ex);
-							}
-						}
-					}
-				}
-				, auto_bom = function(blob) {
-					// prepend BOM for UTF-8 XML and text/* types (including HTML)
-					// note: your browser will automatically convert UTF-16 U+FEFF to EF BB BF
-					if (/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(blob.type)) {
-						return new Blob([String.fromCharCode(0xFEFF), blob], {type: blob.type});
-					}
-					return blob;
-				}
-				, FileSaver = function(blob, name, no_auto_bom) {
-					if (!no_auto_bom) {
-						blob = auto_bom(blob);
-					}
-					// First try a.download, then web filesystem, then object URLs
-					var
-						  filesaver = this
-						, type = blob.type
-						, force = type === force_saveable_type
-						, object_url
-						, dispatch_all = function() {
-							dispatch(filesaver, "writestart progress write writeend".split(" "));
-						}
-						// on any filesys errors revert to saving with object URLs
-						, fs_error = function() {
-							if ((is_chrome_ios || (force && is_safari)) && view.FileReader) {
-								// Safari doesn't allow downloading of blob urls
-								var reader = new FileReader();
-								reader.onloadend = function() {
-									var url = is_chrome_ios ? reader.result : reader.result.replace(/^data:[^;]*;/, 'data:attachment/file;');
-									var popup = view.open(url, '_blank');
-									if(!popup) view.location.href = url;
-									url=undefined; // release reference before dispatching
-									filesaver.readyState = filesaver.DONE;
-									dispatch_all();
-								};
-								reader.readAsDataURL(blob);
-								filesaver.readyState = filesaver.INIT;
-								return;
-							}
-							// don't create more object URLs than needed
-							if (!object_url) {
-								object_url = get_URL().createObjectURL(blob);
-							}
-							if (force) {
-								view.location.href = object_url;
-							} else {
-								var opened = view.open(object_url, "_blank");
-								if (!opened) {
-									// Apple does not allow window.open, see https://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/WorkingwithWindowsandTabs/WorkingwithWindowsandTabs.html
-									view.location.href = object_url;
-								}
-							}
-							filesaver.readyState = filesaver.DONE;
-							dispatch_all();
-							revoke(object_url);
-						}
-					;
-					filesaver.readyState = filesaver.INIT;
-
-					if (can_use_save_link) {
-						object_url = get_URL().createObjectURL(blob);
-						setTimeout(function() {
-							save_link.href = object_url;
-							save_link.download = name;
-							click(save_link);
-							dispatch_all();
-							revoke(object_url);
-							filesaver.readyState = filesaver.DONE;
-						});
-						return;
-					}
-
-					fs_error();
-				}
-				, FS_proto = FileSaver.prototype
-				, saveAs = function(blob, name, no_auto_bom) {
-					return new FileSaver(blob, name || blob.name || "download", no_auto_bom);
-				}
-			;
-			// IE 10+ (native saveAs)
-			if (typeof navigator !== "undefined" && navigator.msSaveOrOpenBlob) {
-				return function(blob, name, no_auto_bom) {
-					name = name || blob.name || "download";
-
-					if (!no_auto_bom) {
-						blob = auto_bom(blob);
-					}
-					return navigator.msSaveOrOpenBlob(blob, name);
-				};
-			}
-
-			FS_proto.abort = function(){};
-			FS_proto.readyState = FS_proto.INIT = 0;
-			FS_proto.WRITING = 1;
-			FS_proto.DONE = 2;
-
-			FS_proto.error =
-			FS_proto.onwritestart =
-			FS_proto.onprogress =
-			FS_proto.onwrite =
-			FS_proto.onabort =
-			FS_proto.onerror =
-			FS_proto.onwriteend =
-				null;
-
-			return saveAs;
-		}(
-			   typeof self !== "undefined" && self
-			|| typeof window !== "undefined" && window
-			|| this.content
-		));
-		// `self` is undefined in Firefox for Android content script context
-		// while `this` is nsIContentFrameMessageManager
-		// with an attribute `content` that corresponds to the window
-
-		if (typeof module !== "undefined" && module.exports) {
-		  module.exports.saveAs = saveAs;
-		} else if (("function" !== "undefined" && __webpack_require__(7) !== null) && (__webpack_require__(8) !== null)) {
-		  !(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
-		    return saveAs;
-		  }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		}
-
-
-	/***/ },
-	/* 7 */
-	/***/ function(module, exports) {
-
-		module.exports = function() { throw new Error("define cannot be used indirect"); };
-
-
-	/***/ },
-	/* 8 */
-	/***/ function(module, exports) {
-
-		/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
-
-		/* WEBPACK VAR INJECTION */}.call(exports, {}))
-
-	/***/ }
-	/******/ ])
-	});
-	;
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
 
-/***/ 89:
+/***/ 10:
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	exports.push([module.id, ".mdtTableContainer {\r\n  position: relative;\r\n  overflow: visible;\r\n  font-size: 15px;\r\n  /* 12sp Roboto Medium, 54% black */\r\n  /* optional animation of sort icons: add class 'animate-sort-icon' to mdt-header-row to activate animation */\r\n  /* 64dp card header height */\r\n  /* 56do for last row */\r\n  /* column padding */\r\n  /* 48dp row height */\r\n  /* 13sp Roboto Regular, 87% black */\r\n  /* border separation color */\r\n  /* INTERACTION */\r\n  /* default icon color */\r\n  /* filter drop down */\r\n  /* TH Select outline color & caret */\r\n}\r\n.mdtTableContainer .mdtTable {\r\n  position: relative;\r\n}\r\n.mdtTableContainer .md-chips {\r\n  font-size: 13px;\r\n}\r\n.mdtTableContainer .p-r {\r\n  position: relative;\r\n}\r\n.mdtTableContainer .no-outline {\r\n  outline: none;\r\n}\r\n.mdtTableContainer *,\r\n.mdtTableContainer *:before,\r\n.mdtTableContainer *:after {\r\n  -webkit-box-sizing: inherit;\r\n  -moz-box-sizing: inherit;\r\n  box-sizing: inherit;\r\n}\r\n.mdtTableContainer table {\r\n  width: 100%;\r\n  display: table;\r\n}\r\n.mdtTableContainer table:focus {\r\n  outline: none;\r\n}\r\n.mdtTableContainer td, .mdtTableContainer th {\r\n  padding: 0;\r\n  margin: 0;\r\n}\r\n.mdtTableContainer th {\r\n  font-size: 12px;\r\n  font-weight: 500;\r\n  color: #757575;\r\n  white-space: nowrap;\r\n  /* prevent ink ripple bleeding */\r\n  position: relative;\r\n  /* no pointer cursor when disabled, could be not-allowed but i think that indication is to strong */\r\n  /* remove the default blue outline in Chrome for consistent button-like behaviour */\r\n  /* when hoverSortIcons on a non-sorted column*/\r\n}\r\n.mdtTableContainer th[disabled] {\r\n  cursor: auto;\r\n}\r\n.mdtTableContainer th:focus, .mdtTableContainer th *:focus {\r\n  outline: none;\r\n}\r\n.mdtTableContainer th .column-header-content {\r\n  cursor: default;\r\n}\r\n.mdtTableContainer th .column-header-content.clickable {\r\n  cursor: pointer;\r\n}\r\n.mdtTableContainer th .hoverSortIcons ng-md-icon {\r\n  visibility: hidden;\r\n  width: 16px;\r\n  height: 16px;\r\n  fill: #b3b3b3;\r\n}\r\n.mdtTableContainer th .hoverSortIcons ng-md-icon svg {\r\n  -webkit-transform: rotate(90deg);\r\n  transform: rotate(90deg);\r\n}\r\n.mdtTableContainer th:hover .hoverSortIcons ng-md-icon {\r\n  visibility: visible;\r\n}\r\n.mdtTableContainer th .sortedColumn {\r\n  /* when hoverSortIcons on a sorted column*/\r\n  /* sort icon rotated -90 degrees for descending sort */\r\n}\r\n.mdtTableContainer th .sortedColumn .hoverSortIcons ng-md-icon {\r\n  display: none;\r\n}\r\n.mdtTableContainer th .sortedColumn ng-md-icon {\r\n  /* specified 16px is a fix now cause angular materia generates a 24x24 icon even the passed value is 16  */\r\n  width: 16px;\r\n  height: 16px;\r\n  fill: #212121;\r\n  /* sort icon rotated 90 degrees for ascending sort (default) */\r\n}\r\n.mdtTableContainer th .sortedColumn ng-md-icon svg {\r\n  -webkit-transform: rotate(90deg);\r\n  transform: rotate(90deg);\r\n}\r\n.mdtTableContainer th .sortedColumn.descending ng-md-icon > svg {\r\n  -webkit-transform: rotate(-90deg);\r\n  transform: rotate(-90deg);\r\n}\r\n.mdtTableContainer tr.animate-sort-icon .sortedColumn ng-md-icon svg {\r\n  -webkit-transition: 0.3s linear all;\r\n  transition: 0.3s linear all;\r\n}\r\n.mdtTableContainer .mdt-header, .mdtTableContainer .mdt-header-alternate {\r\n  height: 64px;\r\n  padding-left: 24px;\r\n  padding-right: 14px;\r\n}\r\n.mdtTableContainer .mdt-header md-button, .mdtTableContainer .mdt-header-alternate md-button {\r\n  margin-left: 24px;\r\n}\r\n.mdtTableContainer .mdt-header ng-md-icon, .mdtTableContainer .mdt-header-alternate ng-md-icon {\r\n  fill: #757575;\r\n}\r\n.mdtTableContainer .mdt-header-alternate {\r\n  background-color: #e3edfd;\r\n}\r\n.mdtTableContainer .mdt-header-alternate .alternate-text {\r\n  color: #0D47A1;\r\n}\r\n.mdtTableContainer .mdt-footer, .mdtTableContainer tr th {\r\n  height: 56px;\r\n  line-height: 56px;\r\n}\r\n.mdtTableContainer .mdt-footer .mdt-pagination, .mdtTableContainer tr th .mdt-pagination {\r\n  font-size: 12px;\r\n  color: #757575;\r\n}\r\n.mdtTableContainer .mdt-footer .mdt-pagination md-input-container, .mdtTableContainer tr th .mdt-pagination md-input-container {\r\n  margin-top: 0px;\r\n  margin-bottom: 0px;\r\n}\r\n.mdtTableContainer .mdt-footer {\r\n  overflow: hidden;\r\n}\r\n.mdtTableContainer .checkboxCell {\r\n  width: 18px;\r\n  /*the next cell should not have just 24px padding */\r\n}\r\n.mdtTableContainer .checkboxCell md-checkbox {\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n.mdtTableContainer .checkboxCell + td, .mdtTableContainer .checkboxCell + th {\r\n  padding-left: 24px;\r\n}\r\n.mdtTableContainer tr td {\r\n  padding: 0;\r\n  height: 48px;\r\n  font-size: 13px;\r\n  color: #212121;\r\n}\r\n.mdtTableContainer td:first-child, .mdtTableContainer th:first-child {\r\n  padding: 0 0 0 24px;\r\n}\r\n.mdtTableContainer td:last-child, .mdtTableContainer th:last-child {\r\n  padding-right: 24px;\r\n}\r\n.mdtTableContainer .column {\r\n  padding-left: 56px;\r\n}\r\n.mdtTableContainer .leftAlignedColumn {\r\n  text-align: left;\r\n}\r\n.mdtTableContainer .rightAlignedColumn {\r\n  text-align: right;\r\n}\r\n.mdtTableContainer tr th {\r\n  border-bottom: solid 1px #DDDDDD;\r\n}\r\n.mdtTableContainer tr td {\r\n  border-bottom: solid 1px #DDDDDD;\r\n}\r\n.mdtTableContainer tr:hover td {\r\n  background: #EEEEEE;\r\n}\r\n.mdtTableContainer .selectedRow td {\r\n  background: #F5F5F5;\r\n}\r\n.mdtTableContainer ng-md-icon {\r\n  fill: #757575;\r\n}\r\n.mdtTableContainer .md-inactive ng-md-icon {\r\n  fill: rgba(0, 0, 0, 0.26);\r\n}\r\n.mdtTableContainer .md-virtual-repeat-container {\r\n  min-height: 106px;\r\n}\r\n.mdtTableContainer .filter-select {\r\n  border: 1px solid transparent;\r\n  padding: 11px 10px;\r\n  border-radius: 2px;\r\n  cursor: pointer;\r\n  margin-left: -10px;\r\n}\r\n.mdtTableContainer .filter-select:hover {\r\n  border-color: #dedede;\r\n}\r\n.mdtTableContainer .filter-select:hover ng-md-icon {\r\n  visibility: visible;\r\n}\r\n.mdtTableContainer .filter-select.is-active {\r\n  color: #fff;\r\n  background-color: #0096D6;\r\n  border-color: #0096D6;\r\n}\r\n.mdtTableContainer .filter-select ng-md-icon {\r\n  visibility: hidden;\r\n}\r\n.mdtTableContainer .filter-select.is-active ng-md-icon {\r\n  visibility: visible;\r\n  fill: rgba(255, 255, 255, 0.87);\r\n  fill: #fff;\r\n}\r\n.mdtTableContainer md-progress-linear .md-container {\r\n  height: 3px;\r\n}\r\n.mdtTableContainer md-progress-linear .md-bar {\r\n  background: #2A87E3;\r\n}\r\n.mdtTableContainer .loading-indicator {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  visibility: hidden;\r\n}\r\n.mdtTableContainer .loading-is-active {\r\n  visibility: visible;\r\n}\r\n\r\n/* filter drop down AND column selector */\r\n.filter-dropdown, .mdt-column-selector {\r\n  position: absolute;\r\n  z-index: 1;\r\n  width: 250px;\r\n  text-align: initial;\r\n}\r\n.filter-dropdown a, .mdt-column-selector a {\r\n  text-decoration: none;\r\n}\r\n.filter-dropdown .selectall_clearall, .mdt-column-selector .selectall_clearall {\r\n  font-size: 12px;\r\n}\r\n.filter-dropdown .selectall_clearall span, .mdt-column-selector .selectall_clearall span {\r\n  margin: 0 5px 0 5px;\r\n}\r\n.filter-dropdown .selectall_clearall .selected_items, .mdt-column-selector .selectall_clearall .selected_items {\r\n  text-align: right;\r\n  color: darkgray;\r\n}\r\n.filter-dropdown .selectall_clearall .disabled, .mdt-column-selector .selectall_clearall .disabled {\r\n  color: #9E9E9E;\r\n  cursor: default;\r\n}\r\n.filter-dropdown .hoverSortIcons ng-md-icon, .mdt-column-selector .hoverSortIcons ng-md-icon {\r\n  visibility: hidden;\r\n  width: 20px;\r\n  height: 20px;\r\n  fill: #b3b3b3;\r\n}\r\n.filter-dropdown .hoverSortIcons ng-md-icon svg, .mdt-column-selector .hoverSortIcons ng-md-icon svg {\r\n  -webkit-transform: rotate(90deg);\r\n  transform: rotate(90deg);\r\n}\r\n.filter-dropdown .hoverSortIcons ng-md-icon, .mdt-column-selector .hoverSortIcons ng-md-icon {\r\n  visibility: visible;\r\n}\r\n.filter-dropdown .sortedColumn, .mdt-column-selector .sortedColumn {\r\n  /* when hoverSortIcons on a sorted column*/\r\n  /* sort icon rotated -90 degrees for descending sort */\r\n}\r\n.filter-dropdown .sortedColumn .hoverSortIcons ng-md-icon, .mdt-column-selector .sortedColumn .hoverSortIcons ng-md-icon {\r\n  display: none;\r\n}\r\n.filter-dropdown .sortedColumn ng-md-icon, .mdt-column-selector .sortedColumn ng-md-icon {\r\n  /* specified 16px is a fix now cause angular materia generates a 24x24 icon even the passed value is 16  */\r\n  width: 20px;\r\n  height: 20px;\r\n  fill: #212121;\r\n  /* sort icon rotated 90 degrees for ascending sort (default) */\r\n}\r\n.filter-dropdown .sortedColumn ng-md-icon svg, .mdt-column-selector .sortedColumn ng-md-icon svg {\r\n  -webkit-transform: rotate(90deg);\r\n  transform: rotate(90deg);\r\n}\r\n.filter-dropdown .sortedColumn.descending ng-md-icon > svg, .mdt-column-selector .sortedColumn.descending ng-md-icon > svg {\r\n  -webkit-transform: rotate(-90deg);\r\n  transform: rotate(-90deg);\r\n}\r\n.filter-dropdown .b-b, .mdt-column-selector .b-b {\r\n  border-bottom: 1px solid #dedede;\r\n}\r\n.filter-dropdown .p-md, .mdt-column-selector .p-md {\r\n  padding: 16px;\r\n}\r\n.filter-dropdown .p-l-md, .mdt-column-selector .p-l-md {\r\n  padding-left: 16px;\r\n}\r\n.filter-dropdown .p-r-md, .mdt-column-selector .p-r-md {\r\n  padding-right: 16px;\r\n}\r\n.filter-dropdown .p-t-md, .mdt-column-selector .p-t-md {\r\n  padding-top: 16px;\r\n}\r\n.filter-dropdown .p-r-md, .mdt-column-selector .p-r-md {\r\n  padding-right: 16px;\r\n}\r\n.filter-dropdown .p-smd, .mdt-column-selector .p-smd {\r\n  padding: 12px;\r\n}\r\n.filter-dropdown .p-sm, .mdt-column-selector .p-sm {\r\n  padding: 8px;\r\n}\r\n.filter-dropdown .p-l-sm, .mdt-column-selector .p-l-sm {\r\n  padding-left: 8px;\r\n}\r\n.filter-dropdown .p-t-sm, .mdt-column-selector .p-t-sm {\r\n  padding-top: 8px;\r\n}\r\n.filter-dropdown .p-b-sm, .mdt-column-selector .p-b-sm {\r\n  padding-bottom: 8px;\r\n}\r\n.filter-dropdown .p-r-sm, .mdt-column-selector .p-r-sm {\r\n  padding-right: 8px;\r\n}\r\n.filter-dropdown .p-b-n, .mdt-column-selector .p-b-n {\r\n  padding-bottom: 0;\r\n}\r\n.filter-dropdown .md-chips, .mdt-column-selector .md-chips {\r\n  font-size: 12px;\r\n}\r\n.filter-dropdown .filter__scroll, .mdt-column-selector .filter__scroll {\r\n  max-height: 200px;\r\n  overflow-y: auto;\r\n  border-bottom: solid 1px #DDDDDD;\r\n}\r\n\r\n.mdt-column-selector {\r\n  right: 0px;\r\n  /* <-- this is a fix for positioning an element with the 'right' value using jquery. To make it work right:0px should be set in css before */\r\n}\r\n.mdt-column-selector .mdt-column-selector-title {\r\n  color: #757575;\r\n}\r\n.mdt-column-selector .mdt-checbox-column-items span {\r\n  width: 180px;\r\n  display: block;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  -ms-text-overflow: ellipsis;\r\n  text-overflow: ellipsis;\r\n}\r\n", ""]);
+
+/***/ },
+
+/***/ 102:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1080,7 +521,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 90:
+/***/ 103:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1098,7 +539,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 91:
+/***/ 104:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1137,7 +578,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 92:
+/***/ 105:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1147,7 +588,7 @@ webpackJsonp([0],{
 	});
 	exports.homeComponent = exports.homeComponentName = undefined;
 
-	var _home = __webpack_require__(93);
+	var _home = __webpack_require__(106);
 
 	var _home2 = _interopRequireDefault(_home);
 
@@ -1156,14 +597,14 @@ webpackJsonp([0],{
 	var homeComponentName = exports.homeComponentName = 'homeComponent';
 
 	var homeComponent = exports.homeComponent = {
-	    template: __webpack_require__(95),
+	    template: __webpack_require__(108),
 	    controller: _home2.default,
 	    controllerAs: 'home'
 	};
 
 /***/ },
 
-/***/ 93:
+/***/ 106:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1177,7 +618,7 @@ webpackJsonp([0],{
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var HomeController = function () {
-	    function HomeController(patientService, FileSaver, $mdDialog) {
+	    function HomeController(patientService, FileSaver, $mdDialog, $mdToast) {
 	        var _this = this;
 
 	        _classCallCheck(this, HomeController);
@@ -1186,6 +627,7 @@ webpackJsonp([0],{
 	        this.patients = undefined;
 	        this.FileSaver = FileSaver;
 	        this.$mdDialog = $mdDialog;
+	        this.$mdToast = $mdToast;
 
 	        // Table options
 	        this.options = {
@@ -1254,11 +696,20 @@ webpackJsonp([0],{
 	        value: function openPatient(patientID) {
 	            this.patient = this.patientService.getSinglePatient(patientID);
 	        }
+
+	        // selectedRowCallback (rows){
+	        //     this.$mdToast.show(
+	        //         this.$mdToast.simple()
+	        //             .content('Selected row id(s): '+rows)
+	        //             .hideDelay(3000)
+	        //     );
+	        // };
+
 	    }, {
 	        key: "onRowClick",
 	        value: function onRowClick(row) {
 	            this.$mdDialog.show({
-	                template: __webpack_require__(94),
+	                template: __webpack_require__(107),
 	                parent: angular.element(document.body),
 	                //targetEvent: ev,
 	                locals: {
@@ -1300,21 +751,21 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 94:
+/***/ 107:
 /***/ function(module, exports) {
 
 	module.exports = "<md-dialog aria-label=\"{{pt.patient.name}}\" style=\"width: 60%;\">\n    <form ng-cloak>\n        <md-toolbar>\n            <div class=\"md-toolbar-tools\">\n                <h2>{{pt.patient.name}}</h2>\n                <span flex></span>\n                <md-button class=\"md-icon-button\" ng-click=\"cancel()\">\n                    <!--<md-icon md-svg-src=\"img/icons/ic_close_24px.svg\" aria-label=\"Close dialog\"></md-icon>-->\n                </md-button>\n            </div>\n        </md-toolbar>\n\n        <md-dialog-content>\n            <md-tabs md-dynamic-height md-border-bottom >\n                <md-tab label=\"Summary\">\n                    <md-content class=\"md-padding\">\n                        <div layout=\"row\" layout-sm=\"column\" layout-align=\"space-around\" ng-show=\"pt.loading\">\n                            <md-progress-circular md-mode=\"indeterminate\"></md-progress-circular>\n                        </div>\n                        <div layout=\"column\" layout-align=\"center\">\n                            <md-card flex md-theme=\"default\" >\n                                <md-card-title>\n                                    <md-card-title-media>\n                                        <div class=\"md-media-lg\">\n                                            <img ng-src=\"data:image/JPEG;base64,{{pt.patientPhoto}}\" class=\"md-card-image\">\n                                        </div>\n                                    </md-card-title-media>\n                                    <md-card-title-text>\n                                        <span class=\"md-headline\">{{pt.patient.name}}</span>\n                                        <span class=\"md-subhead\">{{pt.patient.profile.sex}}</span>\n                                        <span class=\"md-subhead\">{{pt.patient.profile.physician}}</span>\n                                        <span class=\"md-subhead\">{{pt.patient.diagnosis}}</span>\n                                    </md-card-title-text>\n                                </md-card-title>\n                            </md-card>\n                        </div>\n\n                    </md-content>\n                </md-tab>\n                <md-tab label=\"Tasks and Appointments\">\n                    <md-content class=\"md-padding\">\n                        <div layout=\"row\">\n                            <md-list flex>\n                                <md-subheader class=\"md-no-sticky\">Tasks</md-subheader>\n                                <md-list-item class=\"md-3-line\" ng-repeat=\"task in tasks\" ng-click=\"null\">\n                                    <div class=\"md-list-item-text\" layout=\"column\">\n                                        <h3>{{ item.who }}</h3>\n                                        <h4>{{ item.what }}</h4>\n                                        <p>{{ item.notes }}</p>\n                                    </div>\n                                </md-list-item>\n                            </md-list>\n                            <md-list flex>\n                                <md-subheader class=\"md-no-sticky\">Appointments</md-subheader>\n                                <md-list-item class=\"md-3-line\" ng-repeat=\"task in tasks\" ng-click=\"null\">\n                                    <div class=\"md-list-item-text\" layout=\"column\">\n                                        <h3>{{ item.who }}</h3>\n                                        <h4>{{ item.what }}</h4>\n                                        <p>{{ item.notes }}</p>\n                                    </div>\n                                </md-list-item>\n                            </md-list>\n                        </div>\n                    </md-content>\n                </md-tab>\n                <md-tab label=\"Documents\">\n                    <md-content class=\"md-padding\">\n                        <md-list flex>\n                            <md-subheader class=\"md-no-sticky\">Documents</md-subheader>\n                            <md-list-item class=\"md-3-line\" ng-repeat=\"task in tasks\" ng-click=\"null\">\n                                <div class=\"md-list-item-text\" layout=\"column\">\n                                    <h3>{{ item.who }}</h3>\n                                    <h4>{{ item.what }}</h4>\n                                    <p>{{ item.notes }}</p>\n                                </div>\n                            </md-list-item>\n                        </md-list>\n                    </md-content>\n                </md-tab>\n            </md-tabs>\n        </md-dialog-content>\n\n        <md-dialog-actions layout=\"row\">\n            <span flex></span>\n            <md-button ng-click=\"pt.closeDialog()\">\n                Close\n            </md-button>\n        </md-dialog-actions>\n    </form>\n</md-dialog>";
 
 /***/ },
 
-/***/ 95:
+/***/ 108:
 /***/ function(module, exports) {
 
-	module.exports = "<md-toolbar class=\"md-hue-2\">\n    <div class=\"md-toolbar-tools\">\n        <md-button class=\"md-icon-button\" aria-label=\"Settings\">\n            <md-icon md-svg-icon=\"app/img/menu.svg\"></md-icon>\n        </md-button>\n        <h2>\n            <span>Waiting List Management</span>\n        </h2>\n        <span flex></span>\n        <md-menu md-position-mode=\"target-right target\" >\n            <md-button aria-label=\"Open demo menu\" class=\"md-icon-button\" ng-click=\"$mdOpenMenu($event)\">\n                <md-icon md-menu-origin md-svg-icon=\"app/img/more_vert.svg\"></md-icon>\n            </md-button>\n            <md-menu-content width=\"4\" >\n                <md-menu-item>\n                    <md-button>\n                        <div layout=\"row\" flex>\n                            <p flex ng-click=\"home.exportToCSV()\">Export to CSV</p>\n                        </div>\n                    </md-button>\n                </md-menu-item>\n            </md-menu-content>\n        </md-menu>\n    </div>\n</md-toolbar>\n\n<md-content layout-padding>\n    <dtable options=\"home.options\" rows=\"home.patients\" class=\"material dt\" on-row-click=\"home.onRowClick(row)\"></dtable>\n</md-content>";
+	module.exports = "<md-toolbar class=\"md-hue-2\">\n    <div class=\"md-toolbar-tools\">\n        <md-button class=\"md-icon-button\" aria-label=\"Settings\">\n            <md-icon md-svg-icon=\"app/img/menu.svg\"></md-icon>\n        </md-button>\n        <h2>\n            <span>Waiting List Management</span>\n        </h2>\n        <span flex></span>\n        <md-menu md-position-mode=\"target-right target\" >\n            <md-button aria-label=\"Open demo menu\" class=\"md-icon-button\" ng-click=\"$mdOpenMenu($event)\">\n                <md-icon md-menu-origin md-svg-icon=\"app/img/more_vert.svg\"></md-icon>\n            </md-button>\n            <md-menu-content width=\"4\" >\n                <md-menu-item>\n                    <md-button>\n                        <div layout=\"row\" flex>\n                            <p flex ng-click=\"home.exportToCSV()\">Export to CSV</p>\n                        </div>\n                    </md-button>\n                </md-menu-item>\n            </md-menu-content>\n        </md-menu>\n    </div>\n</md-toolbar>\n\n<md-content layout-padding>\n    <mdt-table table-card=\"{visible: true, title: 'Patients', columnSelector: true}\"\n               animate-sort-icon=\"true\"\n               alternate-headers=\"'contextual'\"\n               paginated-rows=\"{isEnabled: true, rowsPerPageValues: [5,10,20,50]}\"\n               mdt-row=\"{\n                    data: home.patients,\n                      'table-row-id-key': 'PatientId',\n                      'column-keys': [\n                          'PLastName',\n                          'PatientId',\n                          'Diagnosis',\n                          'Priority',\n                          'MedReadyDue',\n                          'DaysOnWL',\n                          'SGASDueDateTime',\n                          'DosiDate',\n                          'CTDate',\n                          'MRCT',\n                          'CurrentTask',\n                          'SGASActivityCode',\n                          'Comments',\n                          'LastName'\n\n                      ]\n               }\">\n        <mdt-header-row>\n            <mdt-column align-rule=\"left\" exclude-from-column-selector=\"true\" >Name</mdt-column>\n            <mdt-column align-rule=\"right\">ID</mdt-column>\n            <mdt-column align-rule=\"right\">Diagnosis</mdt-column>\n            <mdt-column align-rule=\"right\">Priority</mdt-column>\n            <mdt-column align-rule=\"right\">Medically Ready</mdt-column>\n            <mdt-column align-rule=\"right\">Waiting (days)</mdt-column>\n            <mdt-column align-rule=\"right\">SGAS Target</mdt-column>\n            <mdt-column align-rule=\"right\">Dosimetry</mdt-column>\n            <mdt-column align-rule=\"right\">CT</mdt-column>\n            <mdt-column align-rule=\"right\">MR to CT (days)</mdt-column>\n            <mdt-column align-rule=\"right\">Current Task</mdt-column>\n            <mdt-column align-rule=\"right\">Hors Service</mdt-column>\n            <mdt-column align-rule=\"right\">Comments</mdt-column>\n            <mdt-column align-rule=\"right\">Rad Onc</mdt-column>\n        </mdt-header-row>\n        <!--<mdt-row-->\n                <!--ng-repeat=\"patient in home.patients\"-->\n                <!--table-row-id=\"patient.PatientId\" ng-click=\"onRowClick(patient)\">-->\n            <!--<mdt-cell>{{patient.PLastName}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.PatientId}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.Diagnosis}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.SGASActivityCode}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.MedReadyDue}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.DaysOnWL}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.SGASDueDateTime}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.DosiDate}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.CTDate}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.MRCT}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.CurrentTask}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.SGASActivityCode}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.Comments}}</mdt-cell>-->\n            <!--<mdt-cell>{{patient.LastName}}</mdt-cell>-->\n        <!--</mdt-row>-->\n    </mdt-table>\n    <!--<dtable options=\"home.options\" rows=\"home.patients\" class=\"material dt\" on-row-click=\"home.onRowClick(row)\"></dtable>-->\n</md-content>";
 
 /***/ },
 
-/***/ 96:
+/***/ 109:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1362,7 +813,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 97:
+/***/ 110:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1387,36 +838,43 @@ webpackJsonp([0],{
 	        this.patients = [];
 	    }
 
+	    // setPatients(){
+	    //     return this.$http.get('php/wlmAPI/patients')
+	    //         .then((response) => {
+	    //             var temp = response.data.list;
+	    //             this.patients = temp.map((patient)=>{
+	    //                 patient.MedReadyDue = new Date(patient.MedReadyDue.split(' '));
+	    //                 patient.SGASCreationDate = new Date(patient.SGASCreationDate);
+	    //                 patient.SGASDueDateTime = new Date(patient.SGASDueDateTime);
+	    //                 patient.CTDate = new Date(patient.CTDate);
+	    //                 return patient;
+	    //             })
+	    //         });
+	    // }
+
 	    _createClass(Patient, [{
 	        key: 'setPatients',
 	        value: function setPatients() {
-	            var _this = this;
-
-	            return this.$http.get('php/wlmAPI/patients').then(function (response) {
-	                var temp = response.data.list;
-	                _this.patients = temp.map(function (patient) {
-	                    patient.MedReadyDue = new Date(patient.MedReadyDue.split(' '));
-	                    patient.SGASCreationDate = new Date(patient.SGASCreationDate);
-	                    patient.SGASDueDateTime = new Date(patient.SGASDueDateTime);
-	                    patient.CTDate = new Date(patient.CTDate);
-	                    return patient;
-	                });
-	            });
+	            return Promise.resolve(this.patients = [{ PLastName: 'Austin', PatientId: '1', Diagnosis: 'diagnosis', Priority: "CodeA",
+	                MedReadyDue: "Due1", DaysOnWL: "3", SGASDueDateTime: "Time", DosiDate: "Other",
+	                CTDate: "Date5", MRCT: "MRCT", CurrentTask: "Taskerion", SGASActivityCode: "Yes!",
+	                Comments: "WOOOOO", LastName: "Awesome" }, { PLastName: 'Austin', PatientId: '2', Diagnosis: 'diagnosis', Priority: "CodeA",
+	                MedReadyDue: "Due1", DaysOnWL: "3", SGASDueDateTime: "Time", DosiDate: "Other",
+	                CTDate: "Date5", MRCT: "MRCT", CurrentTask: "Taskerion", SGASActivityCode: "Yes!",
+	                Comments: "WOOOOO", LastName: "Awesome" }, { PLastName: 'Austin', PatientId: '3', Diagnosis: 'diagnosis', Priority: "CodeA",
+	                MedReadyDue: "Due1", DaysOnWL: "3", SGASDueDateTime: "Time", DosiDate: "Other",
+	                CTDate: "Date5", MRCT: "MRCT", CurrentTask: "Taskerion", SGASActivityCode: "Yes!",
+	                Comments: "WOOOOO", LastName: "Awesome" }, { PLastName: 'Austin', PatientId: '4', Diagnosis: 'diagnosis', Priority: "CodeA",
+	                MedReadyDue: "Due1", DaysOnWL: "3", SGASDueDateTime: "Time", DosiDate: "Other",
+	                CTDate: "Date5", MRCT: "MRCT", CurrentTask: "Taskerion", SGASActivityCode: "Yes!",
+	                Comments: "WOOOOO", LastName: "Awesome" }, { PLastName: 'Austin', PatientId: '5', Diagnosis: 'diagnosis', Priority: "CodeA",
+	                MedReadyDue: "Due1", DaysOnWL: "3", SGASDueDateTime: "Time", DosiDate: "Other",
+	                CTDate: "Date5", MRCT: "MRCT", CurrentTask: "Taskerion", SGASActivityCode: "Yes!",
+	                Comments: "WOOOOO", LastName: "Awesome" }, { PLastName: 'Austin', PatientId: '6', Diagnosis: 'diagnosis', Priority: "CodeA",
+	                MedReadyDue: "Due1", DaysOnWL: "3", SGASDueDateTime: "Time", DosiDate: "Other",
+	                CTDate: "Date5", MRCT: "MRCT", CurrentTask: "Taskerion", SGASActivityCode: "Yes!",
+	                Comments: "WOOOOO", LastName: "Awesome" }]);
 	        }
-
-	        /*setPatients(){
-	            this.patients = undefined;
-	            //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
-	            //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
-	            //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
-	            //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
-	            //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
-	            //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' },
-	            //     { name: 'Austin', id: '1234567', diagnosis: 'diagnosis' },
-	            //     { name: 'Marjan', id: '1234567', diagnosis: 'diagnosis' }
-	            // ];
-	        }*/
-
 	    }, {
 	        key: 'getPatientList',
 	        value: function getPatientList() {

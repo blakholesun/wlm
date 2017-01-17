@@ -25,5 +25,65 @@
 </md-toolbar>
 
 <md-content layout-padding>
-    <dtable options="home.options" rows="home.patients" class="material dt" on-row-click="home.onRowClick(row)"></dtable>
+    <mdt-table table-card="{visible: true, title: 'Patients', columnSelector: true}"
+               animate-sort-icon="true"
+               alternate-headers="'contextual'"
+               paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20,50]}"
+               mdt-row="{
+                    data: home.patients,
+                      'table-row-id-key': 'PatientId',
+                      'column-keys': [
+                          'PLastName',
+                          'PatientId',
+                          'Diagnosis',
+                          'Priority',
+                          'MedReadyDue',
+                          'DaysOnWL',
+                          'SGASDueDateTime',
+                          'DosiDate',
+                          'CTDate',
+                          'MRCT',
+                          'CurrentTask',
+                          'SGASActivityCode',
+                          'Comments',
+                          'LastName'
+
+                      ]
+               }">
+        <mdt-header-row>
+            <mdt-column align-rule="left" exclude-from-column-selector="true" >Name</mdt-column>
+            <mdt-column align-rule="right">ID</mdt-column>
+            <mdt-column align-rule="right">Diagnosis</mdt-column>
+            <mdt-column align-rule="right">Priority</mdt-column>
+            <mdt-column align-rule="right">Medically Ready</mdt-column>
+            <mdt-column align-rule="right">Waiting (days)</mdt-column>
+            <mdt-column align-rule="right">SGAS Target</mdt-column>
+            <mdt-column align-rule="right">Dosimetry</mdt-column>
+            <mdt-column align-rule="right">CT</mdt-column>
+            <mdt-column align-rule="right">MR to CT (days)</mdt-column>
+            <mdt-column align-rule="right">Current Task</mdt-column>
+            <mdt-column align-rule="right">Hors Service</mdt-column>
+            <mdt-column align-rule="right">Comments</mdt-column>
+            <mdt-column align-rule="right">Rad Onc</mdt-column>
+        </mdt-header-row>
+        <!--<mdt-row-->
+                <!--ng-repeat="patient in home.patients"-->
+                <!--table-row-id="patient.PatientId" ng-click="onRowClick(patient)">-->
+            <!--<mdt-cell>{{patient.PLastName}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.PatientId}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.Diagnosis}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.SGASActivityCode}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.MedReadyDue}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.DaysOnWL}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.SGASDueDateTime}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.DosiDate}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.CTDate}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.MRCT}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.CurrentTask}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.SGASActivityCode}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.Comments}}</mdt-cell>-->
+            <!--<mdt-cell>{{patient.LastName}}</mdt-cell>-->
+        <!--</mdt-row>-->
+    </mdt-table>
+    <!--<dtable options="home.options" rows="home.patients" class="material dt" on-row-click="home.onRowClick(row)"></dtable>-->
 </md-content>
